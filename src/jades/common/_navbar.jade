@@ -10,9 +10,9 @@ header
   ul#nav-mobile.side-nav.fixed
     li(class="logo")
       a#logo-container.brand-logo(href='')
-        object#front-page-logo(type='image/svg+xml', data='../imgs/mac_blac.svg') Logo is here !!
-    li.bold(class=(page == "關於" ? "active" : ""))
-      a.waves-effect.waves-teal(href='#') 關於
+        object#front-page-logo(type='image/svg+xml', data='../imgs/mac_blac.svg') Logo is here！
+    li.bold(class=(page == "關於" ? "active" : "")).hide
+      a.waves-effect.waves-teal(href='about.html') 關於
     li.bold(class=(page == "上班注意事項" ? "active" : ""))
       a.waves-effect.waves-teal(href='notice.html') 上班注意事項
     li.bold(class=(page == "電話禮儀" ? "active" : ""))
@@ -55,7 +55,7 @@ header
               li(class=(page == "網路對拷" ? "active" : ""))
                 a(href='netcopy.html') 網路對拷
 
-    li.bold(class=(page == "硬碟掃描" ? "active" : ""))
+    li.bold(class=(page == "硬碟掃描" ? "active" : "")).hide
       a.waves-effect.waves-teal(href='diskscan.html') 硬碟掃描
     li.bold(class=(page == "RHD" ? "active" : ""))
       a.waves-effect.waves-teal(href='rhd.html') RHD
