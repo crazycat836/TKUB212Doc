@@ -1,0 +1,63 @@
+header
+  if no_nav == false
+    nav.top-nav.teal.darken-1
+      .container
+        .nav-wrapper
+          a.page-title #{page}
+  .container
+    a.button-collapse.top-nav(href='#', data-activates='nav-mobile', class=(no_nav == false ? "full hide-on-large-only" : "" + "waves-effect waves-light circle hide-on-large-only"))
+      i.material-icons menu
+  ul#nav-mobile.side-nav.fixed
+    li(class="logo")
+      a#logo-container.brand-logo(href='')
+        object#front-page-logo(type='image/svg+xml', data='../imgs/mac_blac.svg') Logo is here !!
+    li.bold(class=(page == "關於" ? "active" : ""))
+      a.waves-effect.waves-teal(href='#') 關於
+    li.bold(class=(page == "上班注意事項" ? "active" : ""))
+      a.waves-effect.waves-teal(href='notice.html') 上班注意事項
+    li.bold(class=(page == "電話禮儀" ? "active" : ""))
+      a.waves-effect.waves-teal(href='phone.html') 電話禮儀
+    li.bold(class=(page == "辦公室常見狀況" ? "active" : ""))
+      a.waves-effect.waves-teal(href='office.html') 辦公室常見狀況
+    li.bold(class=(page == "事件申請系統" ? "active" : ""))
+      a.waves-effect.waves-teal(href='system.html') 事件申請系統
+    li.bold(class=(page == "電腦維修常見狀況" ? "active" : ""))
+
+    li.no-padding
+      ul.collapsible.collapsible-accordion
+        li.bold
+          a.collapsible-header(class=(page == "修改 IP" || page == "修改 IP（新）" || page == "耗材更換"? "active" : "")+" waves-effect waves-teal")
+            | 印表機
+          .collapsible-body
+            ul
+              li(class=(page == "修改 IP" ? "active" : ""))
+                a(href='printerip.html') 修改印表機 IP
+              li(class=(page == "修改 IP（新）" ? "active" : "")).hide
+                a(href='#') 修改印表機 IP(new)
+              li(class=(page == "耗材更換" ? "active" : ""))
+                a(href='printer.html') 耗材更換
+        li.bold
+          a.collapsible-header(class=(page == "電腦" || page == "印表機" ? "active" : "")+" waves-effect waves-teal")
+            | 維修常見狀況
+          .collapsible-body
+            ul
+              li(class=(page == "電腦" ? "active" : ""))
+                a(href='fcomputer.html') 電腦
+              li(class=(page == "印表機" ? "active" : ""))
+                a(href='fprinter.html') 印表機
+        li.bold
+          a.collapsible-header(class=(page == "硬碟對拷" || page == "網路對拷" ? "active" : "")+" waves-effect waves-teal")
+            | 對拷
+          .collapsible-body
+            ul
+              li(class=(page == "硬碟對拷" ? "active" : ""))
+                a(href='diskcopy.html') 硬碟對拷
+              li(class=(page == "網路對拷" ? "active" : ""))
+                a(href='netcopy.html') 網路對拷
+
+    li.bold(class=(page == "硬碟掃描" ? "active" : ""))
+      a.waves-effect.waves-teal(href='diskscan.html') 硬碟掃描
+    li.bold(class=(page == "RHD" ? "active" : ""))
+      a.waves-effect.waves-teal(href='rhd.html') RHD
+    li.bold(class=(page == "關前後棟" ? "active" : ""))
+      a.waves-effect.waves-teal(href='close.html') 關前後棟

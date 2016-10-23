@@ -1,0 +1,32 @@
+{
+  "name": "b212doc",
+  "version": "1.0.0",
+  "description": "Doc for TKUb212",
+  "main": "build/htmls/index.html",
+  "author": "crazycat836",
+  "scripts": {
+    "build": "NODE_ENV=production gulp && webpack --config webpack.config.js -p"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "method-override": "^2.3.6",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.25.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "glob": "^7.1.1",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-jade": "^1.1.0",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.22.0",
+    "run-sequence": "^1.2.2",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2",
+    "webpack-merge": "^0.15.0"
+  }
+}
