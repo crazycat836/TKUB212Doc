@@ -46,7 +46,7 @@ var config = module.exports = {
     output: {
         filename: 'js/[name].js',
         path: path.join(__dirname, 'build'),
-        publicPath: '../'
+        publicPath: './'
     },
     module: {
         loaders: [{
@@ -67,7 +67,7 @@ var config = module.exports = {
 var pages = Object.keys(getEntry('src/views/*.html'));
 pages.forEach(function(pathname) {
     var conf = {
-        filename: 'htmls/' + pathname + '.html', //html output dest
+        filename: './' + pathname + '.html', //html output dest
         template: 'src/views/' + pathname + '.html', //html template
 
 
