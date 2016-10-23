@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="A Document for B212. ">
+    <title>修改 IP－TKUB212</title>
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="imgs/ic_desktop_mac_36pt_2x.png">
+    <!--meta(name='msapplication-TileColor', content='#FFFFFF')-->
+    <!--meta(name='msapplication-TileImage', content='images/favicon/mstile-144x144.png')-->
+    <link rel="icon" href="../imgs/ic_desktop_mac_black_36dp_2x.png" sizes="32x32">
+    <!--  Android 5 Chrome Color-->
+    <meta name="theme-color" content="#EE6E73">
+    <!-- CSS--><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./css/main.css" rel="stylesheet"></head>
+  <body>
+    <header>
+      <nav class="top-nav teal darken-1">
+        <div class="container">
+          <div class="nav-wrapper"><a class="page-title">修改 IP</a></div>
+        </div>
+      </nav>
+      <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="material-icons">menu</i></a></div>
+      <ul id="nav-mobile" class="side-nav fixed">
+        <li class="logo"><a id="logo-container" href="" class="brand-logo">
+            <object id="front-page-logo" type="image/svg+xml" data="">Logo is here！</object></a></li>
+        <li class="bold hide"><a href="about.html" class="waves-effect waves-teal">關於</a></li>
+        <li class="bold"><a href="notice.html" class="waves-effect waves-teal">上班注意事項</a></li>
+        <li class="bold"><a href="phone.html" class="waves-effect waves-teal">電話禮儀</a></li>
+        <li class="bold"><a href="office.html" class="waves-effect waves-teal">辦公室常見狀況</a></li>
+        <li class="bold"><a href="system.html" class="waves-effect waves-teal">事件申請系統</a></li>
+        <li class="bold"></li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a class="collapsible-header active waves-effect waves-teal">印表機</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li class="active"><a href="printerip.html">修改印表機 IP</a></li>
+                  <li class="hide"><a href="#">修改印表機 IP(new)</a></li>
+                  <li><a href="printer.html">耗材更換</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">維修常見狀況</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="fcomputer.html">電腦</a></li>
+                  <li><a href="fprinter.html">印表機</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">對拷</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="diskcopy.html">硬碟對拷</a></li>
+                  <li><a href="netcopy.html">網路對拷</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="bold hide"><a href="diskscan.html" class="waves-effect waves-teal">硬碟掃描</a></li>
+        <li class="bold"><a href="rhd.html" class="waves-effect waves-teal">RHD</a></li>
+        <li class="bold"><a href="close.html" class="waves-effect waves-teal">關前後棟</a></li>
+      </ul>
+    </header>
+    <main><div class="container">
+    <!--  Outer row  -->
+    <div class="row">
+        <div class="col s12 m9 l10">
+            <div id="1" class="section scrollspy">
+                <h3 class="header">注意事項</h3>
+                <p class="caption">修改 IP 請直接拿回 B212 修改</p>
+                <ol>
+                    <li>先把電源接上（電源線是放在工讀生座位，貼著螢光綠的貼紙）</li>
+                    <li>拿座位前方的一條藍色網路線，從印表機後面的網路孔插上，接上其中一台電腦主機的網路孔</li>
+                </ol>
+                <p>網路互接，是為了讓電腦和印表機形成一個內部網路</p>
+            </div>
+            <div id="2" class="section scrollspy">
+                <h3 class="header">修改 IP</h3>
+                <p></p>
+                <ol>
+                    <li>成功連接後，滑鼠移到右下角，對著顯示驚嘆號的電腦點右鍵，選擇開啟網路和共用中心</li>
+                    <img class="responsive-img materialboxed" src="./imgs/printerip1.JPG">
+                    <li>選擇左邊的變更介面卡設定</li>
+                    <img class="responsive-img materialboxed" src="./imgs/printerip2.JPG">
+                    <li>對著區域連線點選右鍵 -> 內容</li>
+                    <img class="responsive-img materialboxed" src="./imgs/printerip3.JPG">
+                    <li>會看到 TCP/IPv4，點選內容</li>
+                    <img class="responsive-img materialboxed" src="./imgs/printerip4.JPG">
+                    <li>這時候要注意一下，除了 IP 位址，其他地方都不用做修改
+                    <p>假如印表機狀態頁上顯示出來的IP是 163.13.144.85，這邊就要設定 163.13.144.xxx</p>
+                    <p>通常xxx我們會保留原本那台電腦的數值</p>
+                    <p>前三個區段相同就好了（指的是163.13.144）</p></li>
+                    <img class="responsive-img materialboxed" src="./imgs/printerip5.JPG">
+                    <li>改好後按確定，看到下列訊息點是</li>
+                    <img class="responsive-img materialboxed" src="./imgs/printerip6.JPG">
+                    <li>開啟瀏覽器，在網址列輸入你在印表機狀態頁看到的 IP 位址</li>
+                    <li>此時會要你輸入密碼，輸入完後就可以順利進到印表機設定畫面，假如沒跳出要輸入密碼，一定要先到 Networking 頁面底下，Password 那邊做修改（修改畫面如下圖）</li>
+                    <img class="responsive-img materialboxed" src="./imgs/printerip7.png">
+                    <ul>
+                        <p>以下這幾種狀況可能會需要重設印表機設定</p>
+                        <p>重設方法：關掉印表機電源後，按著上方兩個按鍵不放，再把電源打開，此時三個燈號會一起閃爍，閃了五、六次就可以放開，完成重設動作</p>
+                        <li>上一個工讀生把密碼設錯了</li>
+                        <li>IP 衝突</li>
+                        <li>印表機開機過很久，IP 顯示為 0.0.0.0</li>
+                        <li>在最後設定的時候有某個地方設錯了，e.g.：IP 某一個沒打，是空白的</li>
+                    </ul>
+                    <p>印表機設定畫面圖</p>
+                    <img class="responsive-img materialboxed" src="./imgs/printerip8.png">
+                    <li>輸入完密碼或是密碼設定後，就可以進到 Networking 頁面底下選擇 IPv4 Configuration 這邊去修改 IP，選擇 Manual IP 手動設定</li>
+                    <img class="responsive-img materialboxed" src="./imgs/printerip9.png">
+                    <ul>
+                        <li>Manual IP Address 這邊改為 163.13.xxx.xxx（xxx部分要看該台印表機後面的標籤是寫什麼去做修改，每台印表機都不一樣）</li>
+                        <li>IP Subnet Mask 每間都是固定為255.255.255.0</li>
+                        <li>Manual Default Gateway 改成 0.0.0.0</li>
+                        <p>改完 IP 後，點選左邊的 SNMP，選擇 Enable SNMP v1/v2 read-only access... (跟圖中的選項相同)</p>
+                        <img class="responsive-img materialboxed" src="./imgs/printerip10.png">
+                    </ul>
+                    <li>送回實習室後，務必用那邊的電腦印一張測試頁，確認設定無誤</li>
+                </ol>
+            </div>
+        </div>
+        <!-- Table of contents -->
+        <div class="col hide-on-small-only m3 l2">
+            <div class="toc-wrapper">
+                <div style="height: 1px;">
+                    <ul class="table-of-contents">
+                        <li><a href="#1">注意事項</a></li>
+                        <li><a href="#2">修改 IP</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end of table contents -->
+    </div>
+</div>
+
+    </main><footer class="page-footer teal darken-1">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">讓網站變更好！</h5>
+                <p class="grey-text text-lighten-4">如果有任何錯誤或是遺漏，請大家多多回報，我會盡快修改，針對目前的工作內容有任何建議的也歡迎提出來
+                </p>
+            </div>
+            <div class="col l6 s12" style="overflow: hidden;">
+                <h5 class="white-text">Connect</h5>
+                <iframe src="https://ghbtns.com/github-btn.html?user=crazycat836&repo=TKUB212Doc&type=watch&count=false&size=large&v=2" allowtransparency="true" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2016 All rights reserved
+            <a class="grey-text text-lighten-4 right" href="#">Made with <i class="tiny material-icons">favorite</i></a>
+        </div>
+    </div>
+</footer>
+<!--  Scripts-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+if (!window.jQuery) {
+    document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">');
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+  <script type="text/javascript" src="./js/main.js"></script></body>
+</html>
