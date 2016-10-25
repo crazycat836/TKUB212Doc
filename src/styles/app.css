@@ -97,7 +97,7 @@
     height: 50px;
 }
 
-.index-nav .index-logo svg {
+.index-nav .logo svg {
     margin-top: 20px;
     height: 30px;
     width: 120px;
@@ -110,7 +110,7 @@
 }
 
 .index-nav ul li a {
-    font-size: 11px;
+    font-size: 16px;
     letter-spacing: .5px;
     font-weight: 500;
 }
@@ -120,17 +120,17 @@
     -o-transition: color 0.3s;
     transition: color 0.3s;
 }
-
+/*
 .index-nav ul li a:not(.btn):not(.btn-large):hover {
     color: HSLA(205, 85%, 92%, 1);
     text-decoration: underline;
 }
-
+*/
 .index-nav ul li:hover {
     background-color: rgba(255, 255, 255, 0);
 }
 
-.index-nav ul li .github-btn {
+.index-nav ul li .nav-btn {
     z-index: 0;
     margin-left: 15px;
     padding: 0 15px;
@@ -143,20 +143,10 @@
     border-radius: 90px;
 }
 
-.index-nav ul li .github-btn:hover {
+.index-nav ul li .nav-btn:hover {
     color: white;
 }
 
-.github-btn {
-    margin-top: 10px;
-    width: 100%;
-    max-width: 240px;
-    border-radius: 100px;
-    background-color: #F62D51;
-    z-index: 0;
-    letter-spacing: .5px;
-    font-weight: 500;
-}
 
 .container-wide {
     padding: 0 2em;
