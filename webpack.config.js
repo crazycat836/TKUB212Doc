@@ -37,9 +37,9 @@ if (debug) {
 }
 var config = module.exports = {
 
-    cache: debug,
+    cache: true,
     debug: debug,
-    devtool: debug ? 'eval' : 'source-map',
+    //devtool: debug ? 'eval' : 'source-map',
     entry: {
         main: './index.js'
     },
@@ -51,14 +51,17 @@ var config = module.exports = {
     module: {
         loaders: [{
             test: /\.css$/,
-            loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
+            loader: ExtractTextPlugin.extract('style', 'css')
         }, {
             test: /\.html$/,
             loader: "html?-minimize" //避免壓縮HTML
         }, {
             test: /\.(svg|png|gif|jpe?g|JPE?G)$/,
-            loader: 'file?name=imgs/[name].[ext]'
+            loader: 'url?limit=1&name=imgs/[name].[ext]'
         }]
+    },
+    resolve: {
+        root: [path.resolve('./src')],
     },
     plugins: plugins
 };
