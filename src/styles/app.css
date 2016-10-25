@@ -86,6 +86,78 @@
     font-weight: 400;
 }
 
+.index-nav {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 30px 0 0;
+    height: 50px;
+}
+
+.index-nav .index-logo svg {
+    margin-top: 20px;
+    height: 30px;
+    width: 120px;
+    fill: white;
+}
+
+.index-nav ul li {
+    text-transform: uppercase;
+    padding-top: 4.4px;
+}
+
+.index-nav ul li a {
+    font-size: 11px;
+    letter-spacing: .5px;
+    font-weight: 500;
+}
+
+.index-nav ul li a:not(.btn):not(.btn-large) {
+    -webkit-transition: color 0.3s;
+    -o-transition: color 0.3s;
+    transition: color 0.3s;
+}
+
+.index-nav ul li a:not(.btn):not(.btn-large):hover {
+    color: HSLA(205, 85%, 92%, 1);
+    text-decoration: underline;
+}
+
+.index-nav ul li:hover {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.index-nav ul li .github-btn {
+    z-index: 0;
+    margin-left: 15px;
+    padding: 0 15px;
+    line-height: 33px;
+    letter-spacing: .5px;
+    font-weight: 500;
+    background-color: white;
+    border: 2px solid white;
+    color: #F62D51;
+    border-radius: 90px;
+}
+
+.index-nav ul li .github-btn:hover {
+    color: white;
+}
+
+.github-btn {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 240px;
+    border-radius: 100px;
+    background-color: #F62D51;
+    z-index: 0;
+    letter-spacing: .5px;
+    font-weight: 500;
+}
+
 .container-wide {
     padding: 0 2em;
 }
@@ -95,7 +167,7 @@
 /* rewrite origin css */
 
 .header {
-    color: #00897b;
+    color: #009688;
     font-weight: 300
 }
 
@@ -129,5 +201,5 @@ footer {
 
 .side-nav .collapsible-body>ul:not(.collapsible)>li.active a,
 .side-nav.fixed .collapsible-body>ul:not(.collapsible)>li.active a {
-    color: #00897b
+    color: #009688
 }
