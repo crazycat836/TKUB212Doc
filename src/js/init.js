@@ -1,8 +1,5 @@
 (function($) {
     $(function() {
-
-        var window_width = $(window).width();
-
         // convert rgb to hex value string
         function rgb2hex(rgb) {
             if (/^#[0-9A-F]{6}$/i.test(rgb)) {
@@ -59,8 +56,6 @@
             }
         }, 100);
 
-
-
         // Toggle Flow Text
         var toggleFlowTextButton = $('#flow-toggle');
         toggleFlowTextButton.click(function() {
@@ -95,12 +90,6 @@
         if (is_touch_device()) {
             $('#nav-mobile').css({ overflow: 'auto' });
         }
-
-        // Set checkbox on forms.html to indeterminate
-        var indeterminateCheckbox = document.getElementById('indeterminate-checkbox');
-        if (indeterminateCheckbox !== null)
-            indeterminateCheckbox.indeterminate = true;
-
 
         // Plugin initialization
         $('.scrollspy').scrollSpy();
