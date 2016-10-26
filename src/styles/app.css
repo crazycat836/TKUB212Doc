@@ -97,6 +97,13 @@
     height: 50px;
 }
 
+
+/*under experiment*/
+
+.index-nav .container-wide {
+    background: rgba(255, 255, 255, 0.1);
+}
+
 .index-nav .logo svg {
     margin-top: 20px;
     height: 30px;
@@ -120,12 +127,15 @@
     -o-transition: color 0.3s;
     transition: color 0.3s;
 }
+
+
 /*
 .index-nav ul li a:not(.btn):not(.btn-large):hover {
     color: HSLA(205, 85%, 92%, 1);
     text-decoration: underline;
 }
 */
+
 .index-nav ul li:hover {
     background-color: rgba(255, 255, 255, 0);
 }
@@ -147,7 +157,6 @@
     color: white;
 }
 
-
 .container-wide {
     padding: 0 2em;
 }
@@ -155,6 +164,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 /* rewrite origin css */
+
+html {
+    line-height: 1.5;
+    font-family: 'Microsoft JhengHei', 'Roboto', sans-serif;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.87)
+}
 
 .header {
     color: #009688;
