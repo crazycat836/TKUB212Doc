@@ -57,7 +57,7 @@ var config = module.exports = {
             loader: "html?-minimize" //避免壓縮HTML
         }, {
             test: /\.(svg|png|gif|jpe?g|JPE?G)$/,
-            loader: 'url?limit=8192&name=imgs/[name].[ext]'
+            loader: 'url?limit=1&name=imgs/[name].[ext]'
         }]
     },
     resolve: {
