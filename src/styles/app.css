@@ -161,8 +161,6 @@
     padding: 0 2em;
 }
 
-/*@import url('https://fonts.googleapis.com/css?family=Roboto');*/
-
 /* rewrite origin css */
 
 html {
@@ -232,4 +230,8 @@ h3 {
 h5 {
     font-size: 1.5rem;
     margin: .82rem 0 .656rem;
+}
+
+.bold>a {
+    font-weight: 600;
 }
