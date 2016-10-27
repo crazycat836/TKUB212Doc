@@ -161,13 +161,13 @@
     padding: 0 2em;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+/*@import url('https://fonts.googleapis.com/css?family=Roboto');*/
 
 /* rewrite origin css */
 
 html {
     line-height: 1.5;
-    font-family: 'Microsoft JhengHei', 'Roboto', sans-serif;
+    font-family: 'source-han-sans-traditional', 'Roboto',sans-serif;
     font-weight: normal;
     color: rgba(0, 0, 0, 0.87)
 }
@@ -208,4 +208,28 @@ footer {
 .side-nav .collapsible-body>ul:not(.collapsible)>li.active a,
 .side-nav.fixed .collapsible-body>ul:not(.collapsible)>li.active a {
     color: #009688
+}
+
+nav.top-nav a.page-title {
+    line-height: 122px;
+    font-size: 30px
+}
+
+@media only screen and (max-width: 992px) {
+    nav .nav-wrapper {
+        text-align: center
+    }
+    nav .nav-wrapper a.page-title {
+        font-size: 24px
+    }
+}
+
+h3 {
+    font-size: 2rem;
+    margin: 1.46rem 0 1.168rem;
+}
+
+h5 {
+    font-size: 1.5rem;
+    margin: .82rem 0 .656rem;
 }
