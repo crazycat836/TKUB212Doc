@@ -98,7 +98,7 @@
 }
 
 
-/*under experiment*/
+/* under experiment 導覽列半透明 */
 
 .index-nav .container-wide {
     background: rgba(255, 255, 255, 0.1);
@@ -165,7 +165,7 @@
 
 html {
     line-height: 1.5;
-    font-family: 'source-han-sans-traditional', 'Roboto',sans-serif;
+    font-family: 'source-han-sans-traditional',sans-serif;
     font-weight: normal;
     color: rgba(0, 0, 0, 0.87)
 }
@@ -233,5 +233,12 @@ h5 {
 }
 
 .bold>a {
-    font-weight: 600;
+    font-weight: 500;
+}
+
+ul.side-nav.fixed li a {
+    font-size: 1rem;
+    line-height: 44px;
+    height: 44px;
+    padding: 0 30px;
 }
