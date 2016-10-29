@@ -92,7 +92,7 @@
         }
 
         // Plugin initialization
-        $('.scrollspy').scrollSpy();
+        $('.scrollspy').scrollSpy({scrollOffset:'10'});
         $('.button-collapse').sideNav();
         $('.collapsible').collapsible();
         $('.materialboxed').materialbox();
