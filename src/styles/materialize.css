@@ -4768,7 +4768,6 @@ footer.page-footer .footer-copyright {
     display: inline-block;
     height: 36px;
     line-height: 36px;
-    outline: 0;
     padding: 0 2rem;
     text-transform: uppercase;
     vertical-align: middle;
@@ -4816,6 +4815,14 @@ footer.page-footer .footer-copyright {
     color: #9F9F9F !important
 }
 
+.btn,
+.btn-large,
+.btn-floating,
+.btn-large,
+.btn-flat {
+    outline: 0
+}
+
 .btn i,
 .btn-large i,
 .btn-floating i,
@@ -4823,6 +4830,12 @@ footer.page-footer .footer-copyright {
 .btn-flat i {
     font-size: 1.3rem;
     line-height: inherit
+}
+
+.btn:focus,
+.btn-large:focus,
+.btn-floating:focus {
+    background-color: #1d7d74
 }
 
 .btn,
@@ -5009,9 +5022,14 @@ button.btn-floating {
     background-color: transparent
 }
 
+.btn-flat:focus,
 .btn-flat:hover {
     background-color: rgba(0, 0, 0, 0.1);
     box-shadow: none
+}
+
+.btn-flat:active {
+    background-color: rgba(0, 0, 0, 0.2)
 }
 
 .btn-flat.disabled {
@@ -6844,22 +6862,22 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .side-nav .userView {
-    overflow: hidden;
     position: relative;
     padding: 32px 32px 0;
     margin-bottom: 8px
 }
 
-.side-nav .userView a {
+.side-nav .userView>a {
     height: auto;
     padding: 0
 }
 
-.side-nav .userView a:hover {
+.side-nav .userView>a:hover {
     background-color: transparent
 }
 
 .side-nav .userView .background {
+    overflow: hidden;
     position: absolute;
     top: 0;
     right: 0;
@@ -6901,12 +6919,6 @@ input[type=range]:focus::-ms-fill-upper {
     position: fixed;
     top: 0;
     z-index: 998
-}
-
-.side-nav.fixed a {
-    display: block;
-    padding: 0 16px;
-    color: rgba(0, 0, 0, 0.87)
 }
 
 .side-nav.fixed {
