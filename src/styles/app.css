@@ -86,6 +86,12 @@
     font-weight: 400;
 }
 
+.index-h3 {
+    font-size: 2.5rem;
+    line-height: 110%;
+    margin: 1.46rem 0 1.168rem 0
+}
+
 .index-nav {
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -95,13 +101,6 @@
     width: 100%;
     padding: 30px 0 0;
     height: 50px;
-}
-
-
-/* under experiment 導覽列半透明 */
-
-.index-nav .container-wide {
-    background: rgba(255, 255, 255, 0.1);
 }
 
 .index-nav .logo svg {
@@ -128,44 +127,45 @@
     transition: color 0.3s;
 }
 
-
-/*
-.index-nav ul li a:not(.btn):not(.btn-large):hover {
-    color: HSLA(205, 85%, 92%, 1);
-    text-decoration: underline;
-}
-*/
-
 .index-nav ul li:hover {
     background-color: rgba(255, 255, 255, 0);
-}
-
-.index-nav ul li .nav-btn {
-    z-index: 0;
-    margin-left: 15px;
-    padding: 0 15px;
-    line-height: 33px;
-    letter-spacing: .5px;
-    font-weight: 500;
-    background-color: white;
-    border: 2px solid white;
-    color: #F62D51;
-    border-radius: 90px;
-}
-
-.index-nav ul li .nav-btn:hover {
-    color: white;
 }
 
 .container-wide {
     padding: 0 2em;
 }
 
+.index-promo i {
+    margin: 40px 0;
+    color: #009688;
+    font-size: 7rem;
+    display: block;
+}
+
+
 /* rewrite origin css */
+
+@media only screen and (min-width: 0) {
+    html {
+        font-size: 15px
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    html {
+        font-size: 15.5px
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    html {
+        font-size: 16px
+    }
+}
 
 html {
     line-height: 1.5;
-    font-family: 'source-han-sans-traditional',sans-serif;
+    font-family: 'source-han-sans-traditional', sans-serif;
     font-weight: normal;
     color: rgba(0, 0, 0, 0.87)
 }
@@ -241,4 +241,10 @@ ul.side-nav.fixed li a {
     line-height: 44px;
     height: 44px;
     padding: 0 30px;
+}
+
+nav ul li.active,
+nav ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    ;
 }
