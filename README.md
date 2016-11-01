@@ -23,11 +23,17 @@ B212 維修工讀生的維修教學文件
 採用 HTML + CSS + JavaScript 去建構整個頁面
 
 HTML：Jade 模板
+
 CSS：Materialize
+
 JavaScript：Jquery
+
 Adobe TypeKit：中文字型－思源黑體
+
 Google Font API：Material icons
+
 Gulp：Jade 模板 轉成 HTML
+
 Webpack：將 CSS, img, JavaScript 打包，壓縮 JavaScript,CSS，加速載入速度，產生靜態內容 
 
 
