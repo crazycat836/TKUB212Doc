@@ -34,7 +34,7 @@ Google Font API：Material icons
 
 Gulp：Jade 模板 轉成 HTML
 
-Webpack：將 CSS, img, JavaScript 打包，壓縮 JavaScript,CSS，加速載入速度，產生靜態內容 
+Webpack：將 CSS, img, JavaScript 打包，壓縮 JavaScript, CSS，加速載入速度，產生靜態內容 
 
 
 ## 想要幫忙?
