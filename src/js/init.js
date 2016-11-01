@@ -90,13 +90,13 @@
         if (is_touch_device()) {
             $('#nav-mobile').css({ overflow: 'auto' });
         }
-
         // Plugin initialization
         $('.scrollspy').scrollSpy({scrollOffset:'10'});
         $('.button-collapse').sideNav();
         $('.collapsible').collapsible();
         $('.materialboxed').materialbox();
         $('.parallax').parallax();
+        $('img.lazy').lazyload();
     }); // end of document ready
 })(jQuery); // end of jQuery name space
 
@@ -104,7 +104,7 @@
 (function(d) {
     var config = {
       kitId: 'xpl3urw',
-      scriptTimeout: 3000,
+      scriptTimeout: 5000,
       async: true
     },
     h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
