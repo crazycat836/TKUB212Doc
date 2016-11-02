@@ -72,7 +72,7 @@
         <div class="col s12 m9 l10">
             <div id="1" class="section scrollspy">
                 <p class="caption">通常在做完更新後，有時間的話會做網路對拷，將更新套用到其他電腦上</p>
-                <h3 class="header">準備及注意事項</h3>
+                <h1 class="article-title">準備及注意事項</h1>
                 <ol>
                     <li>做網路對拷之前，必須先將機櫃內 Switch 的對外網路線拔掉，對拷完再接回</li>
                     <p>對外網路線：機櫃上編號為 B2XX-A 的網路線 ex. B201-A</p>
@@ -82,8 +82,8 @@
                 </ol>
             </div>
             <div id="2" class="section scrollspy">
-                <h3 class="header">開始對拷</h3>
-                <h5>準備對拷</h5>
+                <h1 class="article-title">開始對拷</h1>
+                <h2 class="subarticle-title">準備對拷</h2>
                 <p>通常會選擇２號來做對拷，電腦開機後，點開右下角的狀態列，會發現有一個叫噢易維護系統的程式</p>
                 <img class="responsive-img materialboxed lazy" data-original="imgs/netcopy1.jpg">
                 <p>滑鼠點兩下後，會跳出一個新的視窗，可以看到現在的保護狀態</p>
@@ -104,7 +104,7 @@
                 <img class="responsive-img materialboxed lazy" data-original="imgs/netcopy7.jpg">
                 <p>確認電腦都有連上後，按完成登錄，會跳到這個畫面，準備開始對拷</p>
                 <img class="responsive-img materialboxed lazy" data-original="imgs/netcopy8.jpg">
-                <h5>開始對拷</h5>
+                <h2 class="subarticle-title">開始對拷</h2>
                 <p>對拷前先點選左邊的測試速度，選擇封包測試，有些比較舊的版本只有 PING 測試，如果是舊版就可以不用測了，正常速度應該為 2、3000 MB/min～5000 MB/min 左右</p>
                 <p>要注意最慢機是否一直是同一台電腦，如果一直都是同一台，通常將主機後網路線和地板網路接口都重新插拔後就會正常了</p>
                 <img class="responsive-img materialboxed lazy" data-original="imgs/netcopy9.jpg">
@@ -114,9 +114,9 @@
                 <img class="responsive-img materialboxed lazy" data-original="imgs/netcopy11.jpg">
             </div>
             <div id="3" class="section scrollspy">
-                <h3 class="header">對拷完</h3>
+                <h1 class="article-title">對拷完</h1>
                 <p>當對拷結束後，每台電腦都會自己去改電腦名稱和 IP，更改完後每台電腦都會回到保護模式</p>
-                <h5>KMS 認證</h5>
+                <h2 class="subarticle-title">KMS 認證</h2>
                 <p>這時便可以利用 1 號電腦去控制其他電腦，利用噢易電腦實驗教學支撐系統（CTSC），程式位置如下，點開後輸入帳號、密碼</p>
                 <img class="responsive-img materialboxed lazy" data-original="imgs/netcopy12.jpg">
                 <p>選擇全部電腦後，2 號不用選，選左邊的系統切換，將每台電腦切到總管模式，先切換哪一個作業系統沒有關係，有對拷到的系統都要重新做過一次 KMS 認證、改預設印表機</p>
@@ -140,16 +140,16 @@
                     </li>
                 </ul>
                 <p>認證跑完後要一台一台檢查認證是否有成功</p>
-                <h5>認證成功畫面</h5>
+                <h2 class="subarticle-title">認證成功畫面</h2>
                 <p>Windows</p>
                 <img class="responsive-img materialboxed lazy" data-original="imgs/netcopy18.jpg">
                 <p>Office</p>
                 <img class="responsive-img materialboxed lazy" data-original="imgs/netcopy19.jpg">
-                <h5>修改預設印表機</h5>
+                <h2 class="subarticle-title">修改預設印表機</h2>
                 <p>打開控制台，選裝置和印表機，進去後會看到很多台印表機，看看那台電腦所屬那排印表機是哪一台，在對著那台印表機點右鍵，設定成預設印表機就可以了</p>
             </div>
             <div id="4" class="section scrollspy">
-                <h3 class="header">對拷結束</h3>
+                <h1 class="article-title">對拷結束</h1>
                 <p>KMS 認證、預設印表機都確認修改完後，將每一台電腦利用噢易電腦實驗教學支撐系統（CTSC）的遠端重啟功能，讓每一台電腦重開並回到保護模式</p>
                 <p>確認電腦都正常後，再用遠端關機功能，關閉每台電腦</p>
             </div>
@@ -194,12 +194,7 @@
 </footer>
 <!--  Scripts-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
-if (!window.jQuery) {
-    document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">');
-}
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/hammerjs/2.0.8/hammer.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-
   <script type="text/javascript" src="./js/main.js"></script></body>
 </html>
