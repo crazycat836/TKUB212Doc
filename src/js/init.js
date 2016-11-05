@@ -55,7 +55,7 @@
                 });
             }
         }, 100);
-
+/*
         // Toggle Flow Text
         var toggleFlowTextButton = $('#flow-toggle');
         toggleFlowTextButton.click(function() {
@@ -77,7 +77,7 @@
                 }
             });
         });
-
+*/
         // Detect touch screen and enable scrollbar if necessary
         function is_touch_device() {
             try {
