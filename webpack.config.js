@@ -3,14 +3,28 @@ var path = require('path');
 var glob = require('glob');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var Purify = require("purifycss-webpack-plugin");
 var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-var debug = process.env.NODE_ENV !== 'production'
+var debug = process.env.NODE_ENV !== 'production';
 
 var plugins = [
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new ExtractTextPlugin('css/[name].css')
-]
+    new ExtractTextPlugin('css/[name].css'),
+    new Purify({
+        purifyOptions: {
+            // Will minify CSS code in addition to purify.
+            minify: true,
+            whitelist: ['pinned', 'pin-top', 'pin-bottom','sidenav-overlay']
+        },
+
+        basePath: path.join(__dirname, 'src'),
+        paths: [
+            "views/*.html"
+        ]
+    })
+
+];
 
 if (debug) {
     //DEVELOPMENT
