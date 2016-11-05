@@ -607,6 +607,8 @@ footer {
    TEST AREA
    ========================================================================== */
 
+
+/*
 .wf-loading body {
     opacity: 0;
     transform: translateY(-20px);
@@ -626,6 +628,20 @@ footer {
 .wf-inactive body {
     opacity: 1;
     visibility: visible;
+}
+*/
+
+.wf-loading body {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.wf-active body,
+.wf-inactive body {
+    /*處理成功或失敗，都以漸變顯示*/
+    -webkit-transition: opacity .4s ease-in-out;
+    -ms-transition: opacity .4s ease-in-out;
+    transition: opacity .4s ease-in-out;
 }
 
 
