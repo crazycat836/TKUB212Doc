@@ -11,3 +11,4 @@ node_modules
 .LSOverride
 /dist
 /build
+/.idea
