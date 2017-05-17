@@ -93,7 +93,7 @@ nav ul li.active {
 header,
 main,
 footer {
-    padding-left: 250px;
+    padding-left: 200px;
 }
 
 @media only screen and (max-width: 992px) {
@@ -217,69 +217,6 @@ a.button-collapse.top-nav i {
     }
 }
 
-#front-page-logo {
-    display: inline-block;
-    height: 100%;
-    pointer-events: none;
-}
-
-@media only screen and (max-width: 992px) {
-    #front-page-nav ul.side-nav li {
-        float: none;
-        padding: 0 15px;
-    }
-    #front-page-nav ul.side-nav li:hover {
-        background-color: #ddd;
-    }
-    #front-page-nav ul.side-nav li .active {
-        background-color: transparent;
-    }
-    #front-page-nav ul.side-nav a {
-        color: #444;
-    }
-}
-
-#responsive-img {
-    width: 80%;
-    display: block;
-    margin: 0 auto;
-}
-
-#index-banner {
-    background-color: #ee6e73;
-}
-
-#index-banner .container {
-    position: relative;
-}
-
-#index-banner .header {
-    color: #FFF;
-}
-
-#index-banner h4 {
-    margin-bottom: 40px;
-}
-
-#index-banner h1 {
-    margin-top: 16px;
-}
-
-@media only screen and (max-width: 992px) {
-    #index-banner h1 {
-        margin-top: 60px;
-    }
-    #index-banner h4 {
-        margin-bottom: 15px;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    #index-banner h4 {
-        margin-bottom: 0;
-    }
-}
-
 .sha {
     color: #f0f0f0;
     margin: 0 6px 0 6px;
@@ -302,110 +239,6 @@ a.button-collapse.top-nav i {
     margin-top: 5px;
     margin-bottom: 0
 }
-
-#front-page-nav {
-    background-color: #FFF;
-    position: relative
-}
-
-#front-page-nav a {
-    color: #ee6e73
-}
-
-#front-page-nav li:hover {
-    background-color: #fdeaeb
-}
-
-#front-page-nav li.active {
-    background-color: #fdeaeb
-}
-
-#front-page-nav .container {
-    height: inherit
-}
-
-.flat-text-header {
-    height: 35px;
-    width: 80%;
-    background-color: rgba(255, 255, 255, 0.15);
-    display: block;
-    margin: 27px auto
-}
-
-.flat-text {
-    height: 25px;
-    width: 80%;
-    background-color: rgba(0, 0, 0, 0.15);
-    display: block;
-    margin: 27px auto
-}
-
-.flat-text.small {
-    width: 25%;
-    height: 25px;
-    background-color: rgba(0, 0, 0, 0.15)
-}
-
-.flat-text.full-width {
-    width: 100%
-}
-
-.browser-window {
-    text-align: left;
-    width: 100%;
-    height: auto;
-    display: inline-block;
-    border-radius: 5px 5px 2px 2px;
-    background-color: #fff;
-    margin: 20px 0px;
-    overflow: hidden
-}
-
-.browser-window .top-bar {
-    height: 30px;
-    border-radius: 5px 5px 0 0;
-    border-top: thin solid #eaeae9;
-    border-bottom: thin solid #dfdfde;
-    background: linear-gradient(#e7e7e6, #E2E2E1)
-}
-
-.browser-window .circle {
-    height: 10px;
-    width: 10px;
-    display: inline-block;
-    border-radius: 50%;
-    background-color: #fff;
-    margin-right: 1px
-}
-
-#close-circle {
-    background-color: #FF5C5A
-}
-
-#minimize-circle {
-    background-color: #FFBB50
-}
-
-#maximize-circle {
-    background-color: #1BC656
-}
-
-.browser-window .circles {
-    margin: 5px 12px
-}
-
-.browser-window .content {
-    margin: 0;
-    width: 100%;
-    display: inline-block;
-    border-radius: 0 0 5px 5px;
-    background-color: #fafafa
-}
-
-.browser-window .row {
-    margin: 0
-}
-
 .clear {
     clear: both
 }
@@ -415,32 +248,6 @@ a.button-collapse.top-nav i {
     vertical-align: middle
 }
 
-.icon-container i {
-    font-size: 3em;
-    margin-bottom: 10px
-}
-
-.icon-container .icon-preview {
-    height: 120px;
-    text-align: center
-}
-
-.icon-container span {
-    display: block
-}
-
-.icon-holder {
-    display: block;
-    text-align: center;
-    width: 150px;
-    height: 115px;
-    float: left;
-    margin: 0 0px 15px 0px
-}
-
-.icon-holder p {
-    margin: 0 0
-}
 
 .tabs-wrapper {
     position: relative;
@@ -465,38 +272,6 @@ a.button-collapse.top-nav i {
 ul.table-of-contents {
     margin-top: 0;
     padding-top: 48px
-}
-
-code,
-pre {
-    position: relative;
-    font-size: 1.1rem
-}
-
-.directory-markup {
-    font-size: 1rem;
-    line-height: 1.1rem !important
-}
-
-pre[class*="language-"] {
-    padding: 25px 12px 7px 12px;
-    border: solid 1px rgba(51, 51, 51, 0.12)
-}
-
-pre[class*="language-"]:before {
-    position: absolute;
-    padding: 1px 5px;
-    background: #e8e6e3;
-    top: 0;
-    left: 0;
-    font-family: 'source-han-sans-traditional', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    color: #555;
-    content: attr(class);
-    font-size: .9rem;
-    border: solid 1px rgba(51, 51, 51, 0.12);
-    border-top: none;
-    border-left: none
 }
 
 .toc-wrapper {
@@ -526,124 +301,61 @@ footer {
     }
 }
 
-.card-panel span,
-.card-content p {
-    -webkit-font-smoothing: antialiased
-}
-
-#images .card-panel .row {
-    margin-bottom: 0
-}
-
-#staggered-test li,
-#image-test {
-    opacity: 0
-}
-
-#nav-mobile li.search {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 120px;
-    margin-top: 1px;
-    padding: 1px 0 0 0;
-    z-index: 2
-}
-
-#nav-mobile li.search:hover {
-    background-color: #fff
-}
-
-#nav-mobile li.search .search-wrapper {
-    margin: 0 12px;
-    transition: margin .25s ease
-}
-
-#nav-mobile li.search .search-wrapper.focused {
-    margin: 0
-}
-
-#nav-mobile li.search .search-wrapper input#search {
-    display: block;
-    font-size: 16px;
-    font-weight: 300;
-    width: 100%;
-    height: 45px;
-    margin: 0;
-    padding: 0 45px 0 15px;
-    border: 0
-}
-
-#nav-mobile li.search .search-wrapper input#search:focus {
-    outline: none
-}
-
-#nav-mobile li.search .search-wrapper i.material-icons {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer
-}
-
-#nav-mobile li.search .search-results {
-    margin: 0;
-    border-top: 1px solid #e9e9e9;
-    background-color: #fff
-}
-
-#nav-mobile li.search .search-results a {
-    font-size: 12px;
-    white-space: nowrap
-}
-
-#nav-mobile li.search .search-results a:hover,
-#nav-mobile li.search .search-results a.focused {
-    background-color: #eee;
-    outline: none
-}
-
-
 /* ==========================================================================
    TEST AREA
    ========================================================================== */
 
-
 /*
-.wf-loading body {
-    opacity: 0;
-    transform: translateY(-20px);
-    -ms-transform: translateY(-20px);
-    -webkit-transform: translateY(-20px);
+* Noto Sans TC (Chinese_traditional) http://www.google.com/fonts/earlyaccess
+ */
+@font-face {
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 100;
+    src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.woff2) format('woff2'),
+    url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.woff) format('woff'),
+    url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.otf) format('opentype');
 }
-
-.wf-active body {
-    opacity: 1;
-    transform: translateY(0);
-    -ms-transform: translateY(0);
-    -webkit-transform: translateY(0);
-    transition: transform .4s ease-in-out, opacity .4s ease-in-out;
-    -webkit-transition: -webkit-transform .4s ease-in-out, opacity .4s ease-in-out;
+@font-face {
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 300;
+    src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Light.woff2) format('woff2'),
+    url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Light.woff) format('woff'),
+    url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Light.otf) format('opentype');
 }
-
-.wf-inactive body {
-    opacity: 1;
-    visibility: visible;
+@font-face {
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 400;
+    src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff2) format('woff2'),
+    url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff) format('woff'),
+    url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.otf) format('opentype');
 }
-*/
-
-.wf-loading body {
-    opacity: 0;
-    visibility: hidden;
+@font-face {
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff2) format('woff2'),
+    url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff) format('woff'),
+    url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.otf) format('opentype');
 }
-
-.wf-active body,
-.wf-inactive body {
-    /*處理成功或失敗，都以漸變顯示*/
-    -webkit-transition: opacity .4s ease-in-out;
-    -ms-transition: opacity .4s ease-in-out;
-    transition: opacity .4s ease-in-out;
+@font-face {
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 700;
+    src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff2) format('woff2'),
+    url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff) format('woff'),
+    url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.otf) format('opentype');
 }
-
+@font-face {
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 900;
+    src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Black.woff2) format('woff2'),
+    url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Black.woff) format('woff'),
+    url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Black.otf) format('opentype');
+}
 
 /* ==========================================================================
    END TEST AREA
@@ -739,6 +451,14 @@ footer {
     height: 50px;
 }
 
+.index-nav .logo{
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 80px;
+}
+
 .index-nav .logo svg {
     margin-top: 20px;
     height: 30px;
@@ -778,6 +498,21 @@ footer {
 }
 
 
+/* typekit transition
+.wf-loading body {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.wf-active body,
+.wf-inactive body {
+    /*處理成功或失敗，都以漸變顯示
+    -webkit-transition: opacity .4s ease-in-out;
+    -ms-transition: opacity .4s ease-in-out;
+    transition: opacity .4s ease-in-out;
+}
+
+*/
 /* ==========================================================================
    rewrite origin css
    ========================================================================== */
@@ -801,12 +536,12 @@ footer {
 }
 
 html {
-    font-family: 'source-han-sans-traditional', sans-serif;
+    font-family: 'Noto Sans TC', sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
 .side-nav {
-    width: 250px;
+    width: 200px;
 }
 
 .side-nav .collapsible-body>ul:not(.collapsible)>li.active,
