@@ -19,6 +19,6 @@ gulp.task('jade', function() {
 
 // Clean Task
 gulp.task('clean', function() {
-    return gulp.src(['build/*', 'src/views/*'], { read: false })
+    return gulp.src(['dist/*', 'src/views/*'], { read: false })
         .pipe(clean());
 });
