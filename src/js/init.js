@@ -55,29 +55,6 @@
                 });
             }
         }, 100);
-        /*
-                // Toggle Flow Text
-                var toggleFlowTextButton = $('#flow-toggle');
-                toggleFlowTextButton.click(function() {
-                    $('#flow-text-demo').children('p').each(function() {
-                        $(this).toggleClass('flow-text');
-                    });
-                });
-
-                //    Toggle Containers on page
-                var toggleContainersButton = $('#container-toggle-button');
-                toggleContainersButton.click(function() {
-                    $('body .browser-window .container, .had-container').each(function() {
-                        $(this).toggleClass('had-container');
-                        $(this).toggleClass('container');
-                        if ($(this).hasClass('container')) {
-                            toggleContainersButton.text("Turn off Containers");
-                        } else {
-                            toggleContainersButton.text("Turn on Containers");
-                        }
-                    });
-                });
-        */
         // Detect touch screen and enable scrollbar if necessary
         function is_touch_device() {
             try {
@@ -101,27 +78,3 @@
         });
     }); // end of document ready
 })(jQuery); // end of jQuery name space
-
-//add typekit
-(function(d) {
-    var config = {
-            kitId: 'xpl3urw',
-            scriptTimeout: 3000,
-            async: true
-        },
-        h = d.documentElement,
-        t = setTimeout(function() { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout),
-        tk = d.createElement("script"),
-        f = false,
-        s = d.getElementsByTagName("script")[0],
-        a;
-    h.className += " wf-loading";
-    tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
-    tk.async = true;
-    tk.onload = tk.onreadystatechange = function() { a = this.readyState;
-        if (f || a && a != "complete" && a != "loaded") return;
-        f = true;
-        clearTimeout(t);
-        try { Typekit.load(config) } catch (e) {} };
-    s.parentNode.insertBefore(tk, s)
-})(document);
