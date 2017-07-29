@@ -1,19 +1,19 @@
 var gulp = require('gulp'),
-    jade = require('gulp-jade'),
+    pug = require('gulp-pug'),
     clean = require('gulp-clean'),
     runSequence = require('run-sequence');
 
 
 gulp.task('default', function(callback) {
     runSequence('clean',
-        'jade',
+        'pug',
         callback);
 });
 
 // turn jade into html
-gulp.task('jade', function() {
-    return gulp.src('src/jades/*.jade')
-        .pipe(jade({ pretty: true })) // pip to jade plugin
+gulp.task('pug', function() {
+    return gulp.src('src/pugs/*.pug')
+        .pipe(pug({ pretty: true })) // pip to pug plugin
         .pipe(gulp.dest('src/views')); // tell gulp our output folder
 });
 
