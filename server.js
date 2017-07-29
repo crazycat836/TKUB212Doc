@@ -1,13 +1,13 @@
 // set up ========================
-var express = require('express');
-var app = express();                                    // create our app  express
-var port     = process.env.PORT || 8080;                // set the port
-var morgan = require('morgan');                         // log requests to the console (express4)
-//var methodOverride = require('method-override');        // simulate DELETE and PUT (express4)
+const express = require('express');
+const app = express();                                    // create our app  express
+const port     = process.env.PORT || 8080;                // set the port
+const morgan = require('morgan');                         // log requests to the console (express4)
+//const methodOverride = require('method-override');        // simulate DELETE and PUT (express4)
 
 // configuration =================
 
-app.use(express.static(__dirname + '/build'));                 // set the static files location /public/img will be /img for users
+app.use(express.static(__dirname + '/dist'));                 // set the static files location /public/img will be /img for users
 app.use(morgan('dev'));                                         // log every request to the console
 //app.use(bodyParser.urlencoded({'extended': 'true'}));           // parse application/x-www-form-urlencoded
 //app.use(bodyParser.json());                                     // parse application/json
@@ -17,7 +17,7 @@ app.use(morgan('dev'));                                         // log every req
 //load routes======================================
 //
 app.get('/', function(req, res){
-    res.sendfile('./build/htmls/index.html');// load the single view file
+    res.sendfile('./dist/index.html');// load the single view file
 });
 
 
