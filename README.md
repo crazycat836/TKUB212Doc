@@ -1,4 +1,4 @@
-# TKU B212 維修工讀生教學 - 1.0.4
+# TKU B212 維修工讀生教學 - 1.0.5
 ------------
 B212 維修工讀生的維修教學文件
 
@@ -6,6 +6,16 @@ B212 維修工讀生的維修教學文件
 
 ##更新紀錄
 ------------
+`2017/07/29 更新`
+
+### 更新
+* 更新 node package
+* 網頁模版 jade -> pug
+
+### 其他
+* 內容修正
+* 新增 LOGO
+
 `2017/05/18 更新`
 
 ### 更新
@@ -37,27 +47,31 @@ B212 維修工讀生的維修教學文件
 
 ## 架構
 
+使用 WebStorm 作為編輯器
+
+git 作為版本控制
+
 ### 後端
 ------------
 
-用 Google Firebase 做 Hosting
+使用 Node.JS + Express 在本機測試
+
+測試沒問題後，用 Google Firebase 做 Hosting
 
 ### 前端
 ------------
 
 採用 HTML + CSS + JavaScript 去建構整個頁面
 
-HTML：Jade 模板
+HTML：Pug 模板
 
 CSS：Materialize
 
 JavaScript：Jquery
 
-Adobe TypeKit：中文字型－思源黑體
+Google Font API：Material icons、中文字型－思源黑體
 
-Google Font API：Material icons
-
-Gulp：Jade 模板 轉成 HTML
+Gulp：Pug 模板 轉成 HTML
 
 Webpack：將 CSS, img, JavaScript 打包，壓縮 JavaScript, CSS，加速載入速度，產生靜態內容 
 
