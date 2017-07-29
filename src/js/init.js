@@ -69,5 +69,8 @@
         $('.button-collapse').sideNav({'edge': 'left'});
         $('.collapsible').collapsible();
         $('.materialboxed').materialbox();
+        $("img.lazy").lazyload({
+            skip_invisible : true
+        });
     }); // end of document ready
 })(jQuery); // end of jQuery name space
