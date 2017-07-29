@@ -1,11 +1,10 @@
 const webpack = require('webpack');
 const path = require('path');
-const glob = require('glob');
+const glob = require('glob-all');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-//const PurifyCSSPlugin = require('purifycss-webpack');
-//const debug = process.env.NODE_ENV !== 'production';
+const PurifyCSSPlugin = require('purifycss-webpack');
 
 const plugins = [
     new webpack.NoEmitOnErrorsPlugin(),
@@ -24,14 +23,13 @@ const plugins = [
             reduce_vars: true,
         }
     }),
-    /*
     new PurifyCSSPlugin({
-        //minimize:true,
+        // Give paths to parse for rules. These should be absolute!
+        paths: glob.sync(path.join(__dirname, 'src/views/*.html')),
         purifyOptions: {
             whitelist: ['pinned', 'pin-top', 'pin-bottom', 'sidenav-overlay','collapsible.','table-of-contents,']
-        },
-        paths: glob.sync(path.join(__dirname, 'src/views/*.html'))
-    })*/
+        }
+    })
 ];
 
 const config = module.exports = {
