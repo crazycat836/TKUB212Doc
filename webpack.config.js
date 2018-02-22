@@ -14,13 +14,12 @@ const plugins = [
         debug: false
     }),
     new UglifyJSPlugin({
-        beautify: false,
-        comments: false,
-        compress: {
+        uglifyOptions: {
             warnings: false,
-            drop_console: true,
-            collapse_vars: true,
-            reduce_vars: true,
+            output: {
+                comments: false,
+                beautify: false
+            }
         }
     }),
     new PurifyCSSPlugin({
