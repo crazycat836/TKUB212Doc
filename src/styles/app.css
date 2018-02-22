@@ -21,7 +21,7 @@ h6 {
     -webkit-font-smoothing: antialiased;
 }
 
-h5>span {
+h5 > span {
     font-size: 14px;
     margin-left: 15px;
     color: #777;
@@ -102,7 +102,8 @@ footer {
     footer {
         padding-left: 0;
     }
-    h5>span {
+
+    h5 > span {
         display: block;
         margin: 0 0 15px 0;
     }
@@ -155,7 +156,7 @@ ul.side-nav.fixed:hover {
     overflow-y: auto;
 }
 
-.bold>a {
+.bold > a {
     font-weight: bold;
 }
 
@@ -206,6 +207,7 @@ a.button-collapse.top-nav i {
     nav .nav-wrapper {
         text-align: center;
     }
+
     nav .nav-wrapper a.page-title {
         font-size: 24px;
     }
@@ -239,6 +241,7 @@ a.button-collapse.top-nav i {
     margin-top: 5px;
     margin-bottom: 0
 }
+
 .clear {
     clear: both
 }
@@ -247,7 +250,6 @@ a.button-collapse.top-nav i {
     text-align: center;
     vertical-align: middle
 }
-
 
 .tabs-wrapper {
     position: relative;
@@ -316,6 +318,7 @@ footer {
     url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.woff) format('woff'),
     url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.otf) format('opentype');
 }
+
 @font-face {
     font-family: 'Noto Sans TC';
     font-style: normal;
@@ -324,6 +327,7 @@ footer {
     url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Light.woff) format('woff'),
     url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Light.otf) format('opentype');
 }
+
 @font-face {
     font-family: 'Noto Sans TC';
     font-style: normal;
@@ -332,6 +336,7 @@ footer {
     url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff) format('woff'),
     url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.otf) format('opentype');
 }
+
 @font-face {
     font-family: 'Noto Sans TC';
     font-style: normal;
@@ -340,6 +345,7 @@ footer {
     url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff) format('woff'),
     url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.otf) format('opentype');
 }
+
 @font-face {
     font-family: 'Noto Sans TC';
     font-style: normal;
@@ -348,6 +354,7 @@ footer {
     url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff) format('woff'),
     url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.otf) format('opentype');
 }
+
 @font-face {
     font-family: 'Noto Sans TC';
     font-style: normal;
@@ -451,7 +458,7 @@ footer {
     height: 50px;
 }
 
-.index-nav .logo{
+.index-nav .logo {
     font-size: 1.5rem;
     letter-spacing: 1px;
     text-align: center;
@@ -496,7 +503,6 @@ footer {
     font-size: 7rem;
     display: block;
 }
-
 
 /* typekit transition
 .wf-loading body {
@@ -544,16 +550,16 @@ html {
     width: 200px;
 }
 
-.side-nav .collapsible-body>ul:not(.collapsible)>li.active,
-.side-nav.fixed .collapsible-body>ul:not(.collapsible)>li.active {
+.side-nav .collapsible-body > ul:not(.collapsible) > li.active,
+.side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active {
     background-color: #fff;
 }
 
-.side-nav .collapsible-body>ul:not(.collapsible)>li.active a,
-.side-nav.fixed .collapsible-body>ul:not(.collapsible)>li.active a {
+.side-nav .collapsible-body > ul:not(.collapsible) > li.active a,
+.side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active a {
     color: #009688;
 }
 
-.bold>a {
+.bold > a {
     font-weight: 500;
 }
