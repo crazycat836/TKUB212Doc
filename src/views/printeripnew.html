@@ -20,13 +20,19 @@
     <header>
       <nav class="top-nav teal">
         <div class="container">
-          <div class="nav-wrapper"><a class="page-title">修改 IP（新）</a></div>
+          <div class="nav-wrapper">
+            <div class="row">
+              <div class="col s12 m10 offset-m1">
+                <h1 class="header">修改 IP（新）</h1>
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
-      <div class="container"><a class="button-collapse top-nav full hide-on-large-only" href="#" data-activates="nav-mobile"><i class="material-icons">menu</i></a></div>
-      <ul class="side-nav fixed" id="nav-mobile">
+      <div class="container"><a class="top-nav sidenav-trigger full hide-on-large-only" href="#" data-target="nav-mobile"><i class="material-icons">menu</i></a></div>
+      <ul class="sidenav sidenav-fixed" id="nav-mobile">
         <li class="logo"><a class="brand-logo" id="logo-container" href="/">
-            <object id="front-page-logo" type="image/svg+xml" data="imgs/logo.svg">Your browser does not support SVG</object></a></li>
+            <object id="front-page-logo" type="image/svg+xml" data="">Your browser does not support SVG</object></a></li>
         <li class="bold"><a class="waves-effect waves-teal" href="notice.html">上班注意事項</a></li>
         <li class="bold"><a class="waves-effect waves-teal" href="phone.html">電話禮儀</a></li>
         <li class="bold"><a class="waves-effect waves-teal" href="office.html">辦公室常見狀況</a></li>
@@ -76,20 +82,26 @@
             </div>
             <div class="col l6 s12" style="overflow: hidden;">
                 <h5 class="white-text">GitHub</h5>
-                <iframe src="https://ghbtns.com/github-btn.html?user=crazycat836&repo=TKUB212Doc&type=watch&count=false&v=2" allowtransparency="true" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                <iframe src="https://ghbtns.com/github-btn.html?user=crazycat836&repo=TKUB212Doc&type=watch&count=false&v=2" allowtransparency="true"
+                    frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
         <div class="container">
-            © 2016-2017 All rights reserved
-            <a class="grey-text text-lighten-4 right" href="#">Made with <i class="tiny material-icons">favorite</i></a>
+            © 2016-2018 All rights reserved
+            <a class="grey-text text-lighten-4 right" href="#">Made with
+                <i class="tiny material-icons">favorite</i>
+            </a>
         </div>
     </div>
-</footer>
-    <!--  Scripts-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
-
+</footer><!--  Scripts-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        document.write('<script src="bin/jquery-3.2.1.min.js"><\/script>');
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js"></script>
   </body>
 </html>

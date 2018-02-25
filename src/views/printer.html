@@ -20,13 +20,19 @@
     <header>
       <nav class="top-nav teal">
         <div class="container">
-          <div class="nav-wrapper"><a class="page-title">耗材更換</a></div>
+          <div class="nav-wrapper">
+            <div class="row">
+              <div class="col s12 m10 offset-m1">
+                <h1 class="header">耗材更換</h1>
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
-      <div class="container"><a class="button-collapse top-nav full hide-on-large-only" href="#" data-activates="nav-mobile"><i class="material-icons">menu</i></a></div>
-      <ul class="side-nav fixed" id="nav-mobile">
+      <div class="container"><a class="top-nav sidenav-trigger full hide-on-large-only" href="#" data-target="nav-mobile"><i class="material-icons">menu</i></a></div>
+      <ul class="sidenav sidenav-fixed" id="nav-mobile">
         <li class="logo"><a class="brand-logo" id="logo-container" href="/">
-            <object id="front-page-logo" type="image/svg+xml" data="imgs/logo.svg">Your browser does not support SVG</object></a></li>
+            <object id="front-page-logo" type="image/svg+xml" data="">Your browser does not support SVG</object></a></li>
         <li class="bold"><a class="waves-effect waves-teal" href="notice.html">上班注意事項</a></li>
         <li class="bold"><a class="waves-effect waves-teal" href="phone.html">電話禮儀</a></li>
         <li class="bold"><a class="waves-effect waves-teal" href="office.html">辦公室常見狀況</a></li>
@@ -69,43 +75,49 @@
     <main><div class="container">
     <!--  Outer row  -->
     <div class="row">
-        <div class="col s12 m9 l10">
+        <div class="col s12 m8 offset-m1 xl7 offset-xl1">
             <div id="1" class="section scrollspy">
-                <h1 class="article-title">正常碳粉</h1>
-                <p>從倉庫配送紙和碳粉匣進入 B212 辦公室時，請填寫“教學支援組耗材庫存登記表”的領用量</p>
-                <p>從辦公室配送白紙和碳粉匣時，請填寫”教學支援組耗材領用登記表“上對應時間和哪一間的表格內，以正字紀錄數量</p>
-                <p>假如上一班有留下可以繼續使用的碳粉，出去時不用紀錄，但是回來還是要記錄</p>
-                <p>從各實習室送回使用完畢之碳粉匣時須記錄於“實習室碳粉夾紀錄表”，依照表格格式填入碳粉匣的使用資訊</p>
+                <h3 class="header">正常碳粉</h3>
+                    <p>從倉庫配送紙和碳粉匣進入 B212 辦公室時，請填寫“教學支援組耗材庫存登記表”的領用量</p>
+                    <p>從辦公室配送白紙和碳粉匣時，請填寫”教學支援組耗材領用登記表“上對應時間和哪一間的表格內，以正字紀錄數量</p>
+                    <p>假如上一班有留下可以繼續使用的碳粉，出去時不用紀錄，但是回來還是要記錄</p>
+                    <p>從各實習室送回使用完畢之碳粉匣時須記錄於“實習室碳粉夾紀錄表”，依照表格格式填入碳粉匣的使用資訊</p>
             </div>
             <div id="2" class="section scrollspy">
-                <h1 class="article-title">故障碳粉</h1>
-                <p>先把故障碳粉放印表機內，並且到印表機設定頁面，查看碳份剩餘容量</p>
-                <p>ex. B203－L2（?），代表是 B203－L2 碳粉匣故障，剩餘容量顯示為？</p>
-                <img class="responsive-img materialboxed lazy" data-original="imgs/printer1.jpg" width="1000" height="1200">
-                <ol>
-                    <li>碳粉送回來時，先確認碳粉匣的使用重量是否達到標準，目前使用 HP 1606 ＆ Ｍ201dw 碳粉匣的狀況至少可使用 60 至 90 克</li>
-                    <li>若沒有達到標準，請確認該碳粉匣是否真的已經無法列印出清楚的黑色而非誤報</li>
-                    <li>可繼續列印的碳粉匣請退回至實習室繼續使用</li>
-                    <li>若無法列印出清楚的黑色則另外處理該碳粉匣，將該碳粉匣放置在冷氣前的紙箱內並填寫碳粉匣故障紀錄表，故障原因填寫“過淡”</li>
-                    <li>碳粉匣有其他故障如碳粉匣解體、碳粉漏出等等，先以裝碳粉匣的黑色塑膠套裝入，外頭再以白紙包住並在寫上該碳粉匣的故障狀況，登記碳粉匣故障紀錄表後放入箱內</li>
-                    <li>另外將故障碳粉放入箱內時，將過淡以及非過淡碳粉分成兩箱來放
-                    </li>
-                    <li>當箱子內的故障碳粉登記數量達到 35 隻時，請將碳粉夾依照空匣的整理方式來排放，並將箱子內的手寫登記表，打成電子檔</li>
-                </ol>
+                <h3 class="header">故障碳粉</h3>
+                    <p>先把故障碳粉放印表機內，並且到印表機設定頁面，查看碳份剩餘容量</p>
+                    <p>ex. B203－L2（?），代表是 B203－L2 碳粉匣故障，剩餘容量顯示為？</p>
+                    <img class="responsive-img materialboxed lazy" data-original="imgs/printer1.jpg" width="1000" height="1200">
+                    <ol>
+                        <li>碳粉送回來時，先確認碳粉匣的使用重量是否達到標準，目前使用 HP 1606 ＆ Ｍ201dw 碳粉匣的狀況至少可使用 60 至 90 克</li>
+                        <li>若沒有達到標準，請確認該碳粉匣是否真的已經無法列印出清楚的黑色而非誤報</li>
+                        <li>可繼續列印的碳粉匣請退回至實習室繼續使用</li>
+                        <li>若無法列印出清楚的黑色則另外處理該碳粉匣，將該碳粉匣放置在冷氣前的紙箱內並填寫碳粉匣故障紀錄表，故障原因填寫“過淡”</li>
+                        <li>碳粉匣有其他故障如碳粉匣解體、碳粉漏出等等，先以裝碳粉匣的黑色塑膠套裝入，外頭再以白紙包住並在寫上該碳粉匣的故障狀況，登記碳粉匣故障紀錄表後放入箱內</li>
+                        <li>另外將故障碳粉放入箱內時，將過淡以及非過淡碳粉分成兩箱來放
+                        </li>
+                        <li>當箱子內的故障碳粉登記數量達到 35 隻時，請將碳粉夾依照空匣的整理方式來排放，並將箱子內的手寫登記表，打成電子檔</li>
+                    </ol>
             </div>
             <div id="3" class="section scrollspy">
-                <h1 class="article-title">碳粉夾更換流程圖</h1>
-                <img class="responsive-img materialboxed lazy" data-original="imgs/printer2.jpg" width="1000" height="1200">
+                <h3 class="header">碳粉夾更換流程圖</h3>
+                    <img class="responsive-img materialboxed lazy" data-original="imgs/printer2.jpg" width="1000" height="1200">
             </div>
         </div>
         <!-- Table of contents -->
-        <div class="col hide-on-small-only m3 l2">
+        <div class="col hide-on-small-only m3 xl3 offset-xl1">
             <div class="toc-wrapper">
                 <div style="height: 1px;">
-                    <ul class="table-of-contents">
-                        <li><a href="#1">正常碳粉</a></li>
-                        <li><a href="#2">故障碳粉</a></li>
-                        <li><a href="#3">更換流程圖</a></li>
+                    <ul class="section table-of-contents">
+                        <li>
+                            <a href="#1">正常碳粉</a>
+                        </li>
+                        <li>
+                            <a href="#2">故障碳粉</a>
+                        </li>
+                        <li>
+                            <a href="#3">更換流程圖</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -113,7 +125,6 @@
         <!-- end of table contents -->
     </div>
 </div>
-
     </main><footer class="page-footer teal">
     <div class="container">
         <div class="row">
@@ -124,20 +135,26 @@
             </div>
             <div class="col l6 s12" style="overflow: hidden;">
                 <h5 class="white-text">GitHub</h5>
-                <iframe src="https://ghbtns.com/github-btn.html?user=crazycat836&repo=TKUB212Doc&type=watch&count=false&v=2" allowtransparency="true" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                <iframe src="https://ghbtns.com/github-btn.html?user=crazycat836&repo=TKUB212Doc&type=watch&count=false&v=2" allowtransparency="true"
+                    frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
         <div class="container">
-            © 2016-2017 All rights reserved
-            <a class="grey-text text-lighten-4 right" href="#">Made with <i class="tiny material-icons">favorite</i></a>
+            © 2016-2018 All rights reserved
+            <a class="grey-text text-lighten-4 right" href="#">Made with
+                <i class="tiny material-icons">favorite</i>
+            </a>
         </div>
     </div>
-</footer>
-    <!--  Scripts-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
-
+</footer><!--  Scripts-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        document.write('<script src="bin/jquery-3.2.1.min.js"><\/script>');
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js"></script>
   </body>
 </html>
