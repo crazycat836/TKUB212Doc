@@ -3,14 +3,16 @@ header
     nav.top-nav.teal
       .container
         .nav-wrapper
-          a.page-title #{page}
+          .row
+            .col.s12.m10.offset-m1
+              h1.header #{page}
   .container
-    a.button-collapse.top-nav(href='#', data-activates='nav-mobile', class=(no_nav == false ? "full hide-on-large-only" : "" + "waves-effect waves-light circle hide-on-large-only"))
+    a.top-nav.sidenav-trigger(href='#', data-target='nav-mobile', class=(no_nav == false ? "full hide-on-large-only" : "" + "waves-effect waves-light circle hide-on-large-only"))
       i.material-icons menu
-  ul#nav-mobile.side-nav.fixed
+  ul#nav-mobile.sidenav.sidenav-fixed
     li(class="logo")
       a#logo-container.brand-logo(href='/')
-        object#front-page-logo(type='image/svg+xml', data='imgs/logo.svg') Your browser does not support SVG
+        object#front-page-logo(type='image/svg+xml', data='') Your browser does not support SVG
     li.bold(class=(page == "上班注意事項" ? "active" : ""))
       a.waves-effect.waves-teal(href='notice.html') 上班注意事項
     li.bold(class=(page == "電話禮儀" ? "active" : ""))
