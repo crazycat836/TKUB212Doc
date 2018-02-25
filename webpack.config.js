@@ -26,7 +26,7 @@ const plugins = [
         // Give paths to parse for rules. These should be absolute!
         paths: glob.sync(path.join(__dirname, 'src/views/*.html')),
         purifyOptions: {
-            whitelist: ['pinned', 'pin-top', 'pin-bottom', 'sidenav-overlay','collapsible.','table-of-contents,']
+            whitelist: ['pinned', 'pin-top', 'pin-bottom', 'sidenav-overlay', 'collapsible.', 'table-of-contents,']
         }
     })
 ];
@@ -65,7 +65,7 @@ const config = module.exports = {
 };
 
 const pages = Object.keys(getEntry('src/views/*.html'));
-pages.forEach(function(pathname) {
+pages.forEach(function (pathname) {
     const conf = {
         filename: './' + pathname + '.html', //html output dest
         template: 'src/views/' + pathname + '.html', //html template
