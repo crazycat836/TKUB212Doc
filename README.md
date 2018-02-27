@@ -6,7 +6,7 @@ B212 維修工讀生的維修教學文件
 
 ##更新紀錄
 ------------
-`2018/02/25 更新`
+`2018/02/27 更新`
 
 ### 更新
 * 更新 node package
@@ -65,7 +65,7 @@ B212 維修工讀生的維修教學文件
 
 使用 Node.JS + Express 在本機測試
 
-測試沒問題後，用 Google Firebase 做 Hosting
+用 Google Firebase 做 Hosting
 
 ### 前端
 ------------
