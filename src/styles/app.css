@@ -60,7 +60,7 @@ p {
     padding: 0
 }
 
-h5>span {
+h5 > span {
     font-size: 14px;
     margin-left: 15px;
     color: #777
@@ -107,7 +107,8 @@ footer {
     footer {
         padding-left: 0
     }
-    h5>span {
+
+    h5 > span {
         display: block;
         margin: 0 0 15px 0
     }
@@ -168,7 +169,7 @@ ul.sidenav.sidenav-fixed:hover {
     overflow-y: auto
 }
 
-.bold>a {
+.bold > a {
     font-weight: bold
 }
 
@@ -268,6 +269,7 @@ a.sidenav-trigger.top-nav i {
     #index-banner h1 {
         margin-top: 60px
     }
+
     #index-banner h4 {
         margin-bottom: 15px
     }
@@ -681,6 +683,7 @@ nav .nav-wrapper {
 nav .nav-wrapper h2.header {
     color: #fff;
 }
+
 /*
 @media only screen and (min-width: 600px) {
     nav .nav-wrapper h2.header {
@@ -700,7 +703,7 @@ nav .nav-wrapper h2.header {
     }
 }
 
-.bold>a {
+.bold > a {
     font-weight: 500;
 }
 
@@ -716,23 +719,23 @@ h5.header {
 }
 
 @media only screen and (min-width: 601px) {
-    body>.page-footer>.container {
+    body > .page-footer > .container {
         width: 90%
     }
 }
 
 @media only screen and (min-width: 601px) {
-    body>.page-footer>.footer-copyright>.container {
+    body > .page-footer > .footer-copyright > .container {
         width: 90%;
     }
 }
 
-.sidenav .collapsible-body>ul:not(.collapsible)>li.active a,
-.sidenav.sidenav-fixed .collapsible-body>ul:not(.collapsible)>li.active a {
+.sidenav .collapsible-body > ul:not(.collapsible) > li.active a,
+.sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active a {
     color: #fff;
 }
 
-.sidenav .collapsible-body>ul:not(.collapsible)>li.active,
-.sidenav.sidenav-fixed .collapsible-body>ul:not(.collapsible)>li.active {
+.sidenav .collapsible-body > ul:not(.collapsible) > li.active,
+.sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active {
     background-color: #009688;
 }
