@@ -2,33 +2,17 @@ const webpack = require('webpack');
 const path = require('path');
 const glob = require('glob-all');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const PurifyCSSPlugin = require('purifycss-webpack');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const plugins = [
-    new webpack.NoEmitOnErrorsPlugin(),
-    new ExtractTextPlugin('css/[name].css'),
+    new MiniCssExtractPlugin({
+        filename: "[name].css"
+    }),
     new webpack.LoaderOptionsPlugin({
         minimize: true,
         debug: false
-    }),
-    new UglifyJSPlugin({
-        uglifyOptions: {
-            warnings: false,
-            output: {
-                comments: false,
-                beautify: false
-            }
-        }
-    }),
-
-    new PurifyCSSPlugin({
-        // Give paths to parse for rules. These should be absolute!
-        paths: glob.sync(path.join(__dirname, 'src/views/*.html')),
-        purifyOptions: {
-            whitelist: ['pinned', 'pin-top', 'pin-bottom', 'sidenav-overlay', 'collapsible.', 'table-of-contents,']
-        }
     })
 ];
 
@@ -42,13 +26,40 @@ const config = module.exports = {
         path: path.join(__dirname, 'dist'),
         publicPath: './'
     },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            name: 'common',
+        },
+        runtimeChunk: {
+            name: 'runtime',
+        },
+        noEmitOnErrors: true,
+        minimize:true,
+        minimizer: [
+            new UglifyJSPlugin({
+                    cache: true,
+                    parallel: true,
+                    sourceMap: false, // set to true if you want JS source maps
+                    uglifyOptions: {
+                        warnings: false,
+                        output: {
+                            comments: false,
+                            beautify: false
+                        }
+                    }
+                }
+            ),
+            new OptimizeCssAssetsPlugin(),
+        ]
+    },
     module: {
         rules: [{
             test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: "css-loader"
-            })
+            use: [
+                MiniCssExtractPlugin.loader,
+                "css-loader"
+            ]
         }, {
             test: /\.html$/,
             use: "html-loader?-minimize" //避免壓縮HTML
@@ -66,6 +77,7 @@ const config = module.exports = {
 };
 
 const pages = Object.keys(getEntry('src/views/*.html'));
+
 pages.forEach(function (pathname) {
     const conf = {
         filename: './' + pathname + '.html', //html output dest
