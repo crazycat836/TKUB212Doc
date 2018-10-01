@@ -19,7 +19,7 @@ B212 維修工讀生的維修教學文件
 - 使用文檔：https://hackmd.io/s/SyS_9ik5Q
 - 更新日誌：https://hackmd.io/s/SkzfM5J5m
 
-## 特性
+## 特色
 
 - :gem:：**優雅美觀**：以簡單且優雅的設計，呈現網站內容
 - :iphone:：**Responsive Design**：不管使用哪種裝置，都能有良好的閱讀體驗
