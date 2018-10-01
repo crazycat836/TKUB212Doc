@@ -6,7 +6,7 @@
   "author": "crazycat836",
   "license": "MIT",
   "scripts": {
-    "build": "NODE_ENV=production gulp && webpack --config webpack.config.js -p",
+    "build": "NODE_ENV=production gulp && webpack --mode production --config webpack.config.js",
     "deploy": "firebase deploy",
     "test": "firebase serve"
   },
@@ -21,14 +21,15 @@
   },
   "devDependencies": {
     "css-loader": "^1.0.0",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^2.0.0",
     "glob-all": "^3.1.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-pug": "^4.0.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "purify-css": "^1.2.5",
     "purifycss-webpack": "^0.7.0",
     "run-sequence": "^2.2.1",
