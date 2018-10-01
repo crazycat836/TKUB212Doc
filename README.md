@@ -1,8 +1,18 @@
+<head> 
+<script defer src="https://pro.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-eAVkiER0fL/ySiqS7dXu8TLpoR8d9KRzIYtG0Tz7pi24qgQIIupp0fn2XA1H90fP" crossorigin="anonymous"></script>
+</head> 
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossorigin="anonymous">
+
+
+
 # TKU B212 維修工讀生教學 - 1.0.7
 ------------
 B212 維修工讀生的維修教學文件
 
 > 這是一份參考文件，所有事情以工讀生手冊上，或是辦公室大哥大姐說的為準
+
+<i class="fas fa-user"></i>
 
 ##更新紀錄
 
