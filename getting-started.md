@@ -1,74 +1,135 @@
-## 更新紀錄
+# 如何開始...
 
-### 1.0.7
+## 前言
 
-`2018/09/30 更新`
+這個網站，從發想、構思、到成品花了大約一個禮拜，但網站內容是在一年前便開始寫的
 
-#### 更新
-* :star2: 更新 Node package
-* :star2: 更新 Materialize CSS 版本
-* :star2: 更新 jQuery 版本
+從一開始的 Google 文件、HackPad、GitBook 到現在的 WebSite，中間經歷過數次的平台轉換，內容修正不下數百次，希望在看完後，會對工作內容有更加全面的認識
 
-#### 其他
-* 修正網站內容
+下面列出了此網站的頁面架構
 
-### 1.0.6
+```
+- 上班注意事項
+- 電話禮儀
+- 辦公室常見狀況
+- 事件申請系統
+- 印表機
+  - 修改 IP
+  - 耗材更換
+- 維修常見狀況
+  - 電腦
+  - 印表機
+- 對拷
+  - 硬碟對拷
+  - 網路對拷
+- 硬碟掃描
+- RHD
+- 關前後棟
+```
 
-`2018/02/27 更新`
+## 事前準備
 
-#### 更新
-* :star2: 更新 node package
-* :star2: 更新 Materialize css
+在本機安裝 [node](http://nodejs.org/) 和 [git](https://git-scm.com/)。
 
-#### 其他
-* :beetle: 修正內容,HTML標籤錯誤
-* :beetle: 修正圖片錯誤問題
-* 刪除 LOGO
+網站使用到 [ES2015+](http://es6.ruanyifeng.com/)、[pug](https://pugjs.org/api/getting-started.html)、[webpack](https://webpack.js.org)、[firebase](https://firebase.google.com)、[Materialize](https://materializecss.com)，提前瞭解和學習這些知識會非常有幫助。
 
-### 1.0.5
+### 後端
 
-`2017/07/29 更新`
+使用 Node.JS + Express 在本機測試
 
-#### 更新
-* :star2: 更新 node package
-* 網頁模版 jade -> pug
+用 Google Firebase 做 Hosting
 
-#### 其他
-* 內容修正
-* :star2: 新增 LOGO
+### 前端
 
-### 1.0.4
-`2017/05/18 更新`
+採用 HTML + CSS + JavaScript 去建構整個頁面
 
-#### 更新
-* :star2: 更新 node package
-* :star2: webpack 升級到 V2
+HTML：Pug 模板
 
-#### 其他
-* 內容修正
-* 移除 Typekit
-* :star2: CSS 壓縮處理，加快網頁載入速度
+CSS：Materialize
 
-### 1.0.3
+JavaScript：Jquery
 
-`2016/11/6 更新`
+Google Font API：Material icons、中文字型－思源黑體
 
-#### bug修正
-* :beetle: 修正導覽列位置不正常的問題
-* :beetle: 修正字型載入時頁面會閃爍
+Gulp：Pug 模板 轉成 HTML
 
-#### 其他
-* :star2: 縮小 CSS 體積
-* :star2: 修正圖片連結
-* :star2: 文字修正
+Webpack：將 CSS, img, JavaScript 打包，壓縮 JavaScript, CSS，加速載入速度，產生靜態內容 
 
-### 1.0.2
-`2016/11/3 更新`
 
-* :star2: 網頁效能調校、文字修正
 
-### 1.0.0
+## 安裝
 
-`2016/10/29 更新`
+從 GitHub 直接抓取最新的程式碼。
 
-* :gem: 第一個版本發佈
+```bash
+$ git clone https://github.com/crazycat836/TKUB212Doc.git my-project
+$ cd my-project
+```
+
+## 目錄結構
+
+下面是整個專案的目錄結構，dist 資料夾在編譯過後才會出現
+
+```bash
+├── LICENSE
+├── README.md
+├── changlog.md
+├── dist                   # 建置完之後的檔案存放位置
+├── firebase.json
+├── getting-started.md     
+├── gulpfile.js            # gulp 設定檔
+├── index.js               # webpack entry point                 
+├── package-lock.json
+├── package.json
+├── server.js
+├── src                    
+│   ├── imgs               # 壓縮過後的圖片
+│   ├── imgs back          # 原始圖片
+│   ├── js
+│   │   ├── init.js        # 初始化 Materialize Javascript
+│   │   └── jquery.lazyload.js 
+│   ├── page-contents      # 網頁主要內容
+│   ├── pugs               
+│   │   ├── common         # 網頁通用模板
+│   ├── styles
+│   │   ├── app.css
+│   │   └── materialize.css
+│   └── views              # pug 模版產生出的網頁，最終檔案皆放在 dist
+└── webpack.config.js
+```
+
+## 本機開發
+
+安装套件。
+
+```bash
+$ npm install
+```
+
+進入 page-contents 修改或新增網頁內容。
+
+```bash
+$ npm start
+```
+
+修改完成後執行下列指令，建置網頁。
+
+```bash
+$ npm run build
+```
+![](https://user-images.githubusercontent.com/4694414/46293225-6e074700-c5c5-11e8-84e5-600885dc7878.png)
+
+
+```bash
+$ npm run test
+```
+啟動完成打開瀏覽器 [http://localhost:5000](http://localhost:5000)，看到下列頁面代表成功建置。
+
+![](https://user-images.githubusercontent.com/4694414/46293316-b9215a00-c5c5-11e8-8e33-eaf4e7ddefcd.png)
+
+最後部屬網頁到 firebase 
+
+```bash
+$ npm run deploy
+```
+![](https://user-images.githubusercontent.com/4694414/46293481-38169280-c5c6-11e8-94a5-6309f315cda0.png)

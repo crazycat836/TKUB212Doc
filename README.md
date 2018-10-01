@@ -1,98 +1,43 @@
-# TKU B212 維修工讀生教學 - 1.0.7
-------------
+<h1 align="center">TKU B212 維修工讀生教學</h1>
+
+<div align="center">
+
 B212 維修工讀生的維修教學文件
 
-> 這是一份參考文件，所有事情以工讀生手冊上，或是辦公室大哥大姐說的為準
-
-##更新紀錄
-
-`2018/09/30 更新`
-
-### 更新
-* 更新 Node package
-* 更新 Materialize CSS 版本
-* 更新 jQuery 版本
-
-### 其他
-* 修正內容
+這是一份參考文件，所有事情以工讀生手冊上，或是辦公室大哥大姐說的為準
 
 
-`2018/02/27 更新`
+[![Dependencies](https://img.shields.io/david/crazycat836/TKUB212Doc.svg)](https://david-dm.org/crazycat836/TKUB212Doc)
+[![DevDependencies](https://img.shields.io/david/dev/crazycat836/TKUB212Doc.svg)](https://david-dm.org/crazycat836/TKUB212Doc?type=dev)
+![GitHub](https://img.shields.io/github/license/crazycat836/TKUB212Doc.svg)
+![GitHub release](https://img.shields.io/github/release/crazycat836/TKUB212Doc.svg)
+![](https://user-images.githubusercontent.com/4694414/46287336-d00b8080-c5b4-11e8-88b3-713a08833a5e.png)
 
-### 更新
-* 更新 node package
-* 更新 Materialize css
+</div>
 
-### 其他
-* 修正內容,HTML標籤錯誤
-* 修正圖片錯誤問題
-* 刪除 LOGO
+- 首頁：https://b212-1a27b.firebaseapp.com
+- 使用文檔：https://hackmd.io/s/SyS_9ik5Q
+- 更新日誌：https://hackmd.io/s/SkzfM5J5m
 
-`2017/07/29 更新`
+## 特性
 
-### 更新
-* 更新 node package
-* 網頁模版 jade -> pug
+- :gem:：**優雅美觀**：以簡單且優雅的設計，呈現網站內容
+- :iphone:：**Responsive Design**：不管使用哪種裝置，都能有良好的閱讀體驗
+- :globe_with_meridians:：**多平台支援**：手機？平板？電腦？ 通通沒問題
 
-### 其他
-* 內容修正
-* 新增 LOGO
+## 使用
 
-`2017/05/18 更新`
+```bash
+$ git clone https://github.com/crazycat836/TKUB212Doc.git
+$ cd TKUB212Doc
+$ npm install
+$ firebase serve         # 打開 http://localhost:5000
+```
 
-### 更新
-* 更新 node package
-* webpack 升級到 V2
-
-### 其他
-* 內容修正
-* CSS 壓縮處理，加快網頁載入速度
-
-`2016/11/6 更新`
-
-### bug修正
-* 修正導覽列位置不正常的問題
-* 修正字型載入時頁面會閃爍
-
-### 其他
-* 縮小 CSS 體積
-* 修正圖片連結
-* 文字修正
-
-`2016/11/3 更新`
-
-* 網頁效能調校、文字修正
-
-`2016/10/29 更新`
-
-* 第一個版本發佈
-
-## 架構
-
-
-### 後端
-
-使用 Node.JS + Express 在本機測試
-
-用 Google Firebase 做 Hosting
-
-### 前端
-
-採用 HTML + CSS + JavaScript 去建構整個頁面
-
-HTML：Pug 模板
-
-CSS：Materialize
-
-JavaScript：Jquery
-
-Google Font API：Material icons、中文字型－思源黑體
-
-Gulp：Pug 模板 轉成 HTML
-
-Webpack：將 CSS, img, JavaScript 打包，壓縮 JavaScript, CSS，加速載入速度，產生靜態內容 
+更多資訊請參考 [使用文檔](https://hackmd.io/s/SyS_9ik5Q)。
 
 
 ## 想要幫忙?
-
-如果有任何錯誤或是遺漏，請大家多多回報，我會盡快修改
+如果有任何錯誤或是遺漏，可以透過以下方式回報 :smiley:：
+- 透過 [Issue](https://github.com/crazycat836/TKUB212Doc/issues) 回報 bug 或詢問。
+- 提交 [Pull Request](https://github.com/crazycat836/TKUB212Doc/pulls) 改進 Doc 的程式碼。
