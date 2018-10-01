@@ -12,7 +12,7 @@
 * :star2: README 大翻新 [#26](https://github.com/crazycat836/TKUB212Doc/issues/26)
 
 #### 其他
-* :star2: 修正網站內容
+* :star2: 修正網站內容 [28cb28f](https://github.com/crazycat836/TKUB212Doc/commit/28cb28f69fdbc76d898b710f202216fec236038c)
 
 ### 1.0.7
 
