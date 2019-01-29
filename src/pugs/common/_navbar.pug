@@ -10,9 +10,9 @@ header
     a.top-nav.sidenav-trigger(href='#', data-target='nav-mobile', class=(no_nav == false ? "full hide-on-large-only" : "" + "waves-effect waves-light circle hide-on-large-only"))
       i.material-icons menu
   ul#nav-mobile.sidenav.sidenav-fixed
-    li(class="logo")
-      a#logo-container.brand-logo(href='/')
-        object#front-page-logo(type='image/svg+xml', data='') Your browser does not support SVG
+    li(class="logo", href='/')
+      a#logo-container.brand-logo()
+        object#front-page-logo(type='image/svg+xml', data='imgs/penguin.svg', width='100px', height='100px') Your browser does not support SVG
     li.bold(class=(page == "上班注意事項" ? "active" : ""))
       a.waves-effect.waves-teal(href='notice.html') 上班注意事項
     li.bold(class=(page == "電話禮儀" ? "active" : ""))
@@ -30,7 +30,7 @@ header
           .collapsible-body
             ul
               li(class=(page == "修改 IP" ? "active" : ""))
-                a(href='printerip.html') 修改 IP
+                a(href='printerIP_1606.html') 修改 IP
               li(class=(page == "修改 IP" ? "active" : "")).hide
                 a(href='#') 修改印表機 IP(new)
               li(class=(page == "耗材更換" ? "active" : ""))

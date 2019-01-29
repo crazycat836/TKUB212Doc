@@ -13,3 +13,4 @@ node_modules
 /build
 /.idea
 /.firebase
+/src/views
