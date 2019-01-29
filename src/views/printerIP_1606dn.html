@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="一份給 B212 的教學手冊 ">
-    <title>電話禮儀－TKUB212</title>
+    <title>修改印表機 IP (1606dn)－TKUB212</title>
     <!-- Favicons-->
     <link rel="apple-touch-icon-precomposed" href="imgs/ic_desktop_mac_36pt_2x.png">
     <!--meta(name='msapplication-TileColor', content='#FFFFFF')-->
@@ -23,7 +23,7 @@
           <div class="nav-wrapper">
             <div class="row">
               <div class="col s12 m10 offset-m1">
-                <h2 class="header">電話禮儀</h2>
+                <h2 class="header">修改印表機 IP (1606dn)</h2>
               </div>
             </div>
           </div>
@@ -34,15 +34,15 @@
         <li class="logo" href="/"><a class="brand-logo" id="logo-container">
             <object id="front-page-logo" type="image/svg+xml" data="imgs/penguin.svg" width="100px" height="100px">Your browser does not support SVG</object></a></li>
         <li class="bold"><a class="waves-effect waves-teal" href="notice.html">上班注意事項</a></li>
-        <li class="bold active"><a class="waves-effect waves-teal" href="phone.html">電話禮儀</a></li>
+        <li class="bold"><a class="waves-effect waves-teal" href="phone.html">電話禮儀</a></li>
         <li class="bold"><a class="waves-effect waves-teal" href="office.html">辦公室常見狀況</a></li>
         <li class="bold"><a class="waves-effect waves-teal" href="system.html">事件申請系統</a></li>
         <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
-            <li class="bold"><a class="collapsible-header waves-effect waves-teal">印表機</a>
+            <li class="bold active"><a class="collapsible-header waves-effect waves-teal">印表機</a>
               <div class="collapsible-body">
                 <ul>
-                  <li><a href="printerIP_1606dn.html">修改印表機 IP (1606dn)</a></li>
+                  <li class="active"><a href="printerIP_1606dn.html">修改印表機 IP (1606dn)</a></li>
                   <li><a href="printerip_M201dw.html">修改印表機 IP (201dw)</a></li>
                   <li><a href="printer.html">耗材更換</a></li>
                 </ul>
@@ -77,89 +77,68 @@
     <div class="row">
         <div class="col s12 m8 offset-m1 xl7 offset-xl1">
             <div id="1" class="section scrollspy">
-                <h4 class="header">電話禮儀</h4>
+                <h4 class="header">注意事項</h4>
+                <p class="caption">修改 IP 請直接拿回 B212 修改</p>
                 <ol>
-                    <li>不需要主動接聽來電，當辦公室職員皆不在位置上或正在忙線中的時候，要幫忙接聽</li>
-                    <li>需要接聽別線分機的電話時，查看電話中間橫排白色的分機鈕哪線正在閃紅燈，拿起話筒後按下即可接聽</li>
-                    <li>接聽來電請主動先說「教學支援組，您好」然後確認對方的來意，如果接到電話找辦公室其他同仁，請對方稍等，並按右下角「保留」，再請辦公室同仁接聽</li>
-                    <li>假如同仁不在位置上，可以請對方留下聯絡方式，並告知同仁回來會請他回電，如果同仁回來時，務必通知剛剛有人來電找他</li>
+                    <li>先接上電源（電源線是放在工讀生座位，貼著螢光綠的貼紙）</li>
+                    <li>拿座位前方的一條藍色網路線，從印表機後面的網路孔插上，接上其中一台電腦主機的網路孔</li>
                 </ol>
+                <p>網路互接，是為了讓電腦和印表機形成區域網路</p>
             </div>
             <div id="2" class="section scrollspy">
-                <h4 class="header">如何撥分機</h4>
-                <p class="caption">使用最右邊的分機鈕（五線或六線）</p>
+                <h4 class="header">修改 IP</h4>
+                <p></p>
                 <ol>
-                    <li>打電話至校內其他處室分機，拿起話筒後按下未亮燈的分機鈕，再直接輸入分機號碼即可</li>
-                    <li>打電話至校外號碼，用劉大哥座位左側的電話才能對外撥出電話</li>
-                    <li>轉分機：先按下電話上暫切鈕，播分機，等到有嘟嘟聲之後才掛斷</li>
+                    <li>成功連接後，滑鼠移到右下角，對著顯示驚嘆號的電腦點右鍵，選擇開啟網路和共用中心</li>
+                    <img class="responsive-img materialboxed lazy" data-original="imgs/printerip1.jpg" width="1000"
+                         height="1200">
+                    <li>選擇左邊的變更介面卡設定</li>
+                    <img class="responsive-img materialboxed lazy" data-original="imgs/printerip2.jpg" width="1000"
+                         height="1200">
+                    <li>對著區域連線點選右鍵 -> 內容</li>
+                    <img class="responsive-img materialboxed lazy" data-original="imgs/printerip3.jpg" width="1000"
+                         height="1200">
+                    <li>會看到 TCP/IPv4，點選內容</li>
+                    <img class="responsive-img materialboxed lazy" data-original="imgs/printerip4.jpg" width="1000"
+                         height="1200">
+                    <li>這時候要注意一下，除了 IP 位址，其他地方都不用做修改
+                        <p>假如印表機狀態頁上顯示出來的IP是 163.13.226.85，這邊就要設定 163.13.226.xxx</p>
+                        <p>通常xxx我們會保留原本那台電腦的數值</p>
+                        <p>前三個區段相同就好了（指的是163.13.226）</p>
+                    </li>
+                    <img class="responsive-img materialboxed lazy" data-original="imgs/printerip5.jpg" width="1000"
+                         height="1200">
+                    <li>改好後按確定，看到下列訊息點是</li>
+                    <img class="responsive-img materialboxed lazy" data-original="imgs/printerip6.jpg" width="1000"
+                         height="1200">
+                    <li>開啟瀏覽器，在網址列輸入你在印表機狀態頁看到的 IP 位址</li>
+                    <li>此時會要你輸入密碼，輸入完後就可以順利進到印表機設定畫面，假如沒跳出要輸入密碼，一定要先到 Networking 頁面底下，Password 那邊做修改（修改畫面如下圖）</li>
+                    <img class="responsive-img materialboxed lazy" data-original="imgs/printerip7.jpg" width="1000"
+                         height="1200">
+                    <ul>
+                        <p>以下這幾種狀況可能會需要重設印表機設定</p>
+                        <p>重設方法：關掉印表機電源後，按著上方兩個按鍵不放，再把電源打開，此時三個燈號會一起閃爍，閃了五、六次就可以放開，完成重設動作</p>
+                        <li>上一個工讀生把密碼設錯了</li>
+                        <li>IP 衝突</li>
+                        <li>印表機開機過很久，IP 顯示為 0.0.0.0</li>
+                        <li>在最後設定的時候有某個地方設錯了，e.g.：IP 某一個沒打，是空白的</li>
+                    </ul>
+                    <p>印表機設定畫面圖</p>
+                    <img class="responsive-img materialboxed lazy" data-original="imgs/printerip8.jpg" width="1000"
+                         height="1200">
+                    <li>輸入完密碼或是密碼設定後，就可以進到 Networking 頁面底下選擇 IPv4 Configuration 這邊去修改 IP，選擇 Manual IP 手動設定</li>
+                    <img class="responsive-img materialboxed lazy" data-original="imgs/printerip9.jpg" width="1000"
+                         height="1200">
+                    <ul>
+                        <li>Manual IP Address 這邊改為 163.13.xxx.xxx（xxx部分要看該台印表機後面的標籤是寫什麼去做修改，每台印表機都不一樣）</li>
+                        <li>IP Subnet Mask 每間都是固定為255.255.255.0</li>
+                        <li>Manual Default Gateway 改成 0.0.0.0</li>
+                        <p>改完 IP 後，點選左邊的 SNMP，選擇 Enable SNMP v1/v2 read-only access... (跟圖中的選項相同)</p>
+                        <img class="responsive-img materialboxed lazy" data-original="imgs/printerip10.jpg" width="1000"
+                             height="1200">
+                    </ul>
+                    <li>送回實習室前，務必印一張測試頁，確認設定無誤</li>
                 </ol>
-            </div>
-            <div id="3" class="section scrollspy">
-                <h4 class="header">常見分機</h4>
-                <h5 class="header">對外相關業務</h5>
-                <table class="responsive-table striped">
-                    <thead>
-                    <tr>
-                        <th data-field="id">負責業務</th>
-                        <th data-field="name">單位位置</th>
-                        <th data-field="price">電話</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>電腦軟硬體相關故障</td>
-                        <td>電腦維修隊（B219）</td>
-                        <td>2484</td>
-                    </tr>
-                    <tr>
-                        <td>實習室、電腦教室借用</td>
-                        <td>連楨怡</td>
-                        <td>2128</td>
-                    </tr>
-                    <tr>
-                        <td>SPSS軟體授權安裝、諮詢</td>
-                        <td>張紅燕（B219）</td>
-                        <td>2584</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <h5 class="header">外單位相關業務</h5>
-                <table class="responsive-table striped">
-                    <thead>
-                    <tr>
-                        <th data-field="id">負責業務</th>
-                        <th data-field="name">單位位置</th>
-                        <th data-field="price">電話</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>網路不通、垃圾信、BBS</td>
-                        <td>電腦維修隊（B219）</td>
-                        <td>2628</td>
-                    </tr>
-                    <tr>
-                        <td>記分簿、單一登入口網、請假系統</td>
-                        <td>資訊處聯合服務台（B212）</td>
-                        <td>2468</td>
-                    </tr>
-                    <tr>
-                        <td>教學支援平台</td>
-                        <td>專案發展組（T101）</td>
-                        <td>2397</td>
-                    </tr>
-                    <tr>
-                        <td>校務行政資訊查詢、學務預算、設備系統</td>
-                        <td>校務資訊組（T112）</td>
-                        <td>2683</td>
-                    </tr>
-                    <tr>
-                        <td>上課教室電腦設備</td>
-                        <td>遠距組（I102）</td>
-                        <td>2310</td>
-                    </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
         <!-- Table of contents -->
@@ -168,13 +147,10 @@
                 <div style="height: 1px;">
                     <ul class="section table-of-contents">
                         <li>
-                            <a href="#1">電話禮儀</a>
+                            <a href="#1">注意事項</a>
                         </li>
                         <li>
-                            <a href="#2">如何撥分機</a>
-                        </li>
-                        <li>
-                            <a href="#3">常見分機</a>
+                            <a href="#2">修改 IP</a>
                         </li>
                     </ul>
                 </div>
