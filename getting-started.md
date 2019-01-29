@@ -78,7 +78,7 @@ $ cd my-project
 ├── firebase.json
 ├── getting-started.md     
 ├── gulpfile.js            # gulp 設定檔
-├── index.js               # webpack entry point                 
+├── app.js               # webpack entry point                 
 ├── package-lock.json
 ├── package.json
 ├── server.js
