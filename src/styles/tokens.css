@@ -1,0 +1,161 @@
+/*
+ * Design tokens — single source of truth for color, type, space, radius, motion.
+ * Canonical reference: /DESIGN.md
+ */
+
+:root {
+  color-scheme: light;
+
+  /* — Surface — */
+  --color-bg: oklch(99% 0.003 250);
+  --color-surface: oklch(100% 0 0);
+  --color-surface-elevated: oklch(98% 0.005 250);
+  --color-surface-sunken: oklch(96.5% 0.006 250);
+  --color-overlay: oklch(0% 0 0 / 45%);
+
+  /* — Text — */
+  --color-text: oklch(18% 0.015 260);
+  --color-text-muted: oklch(46% 0.012 260);
+  --color-text-subtle: oklch(62% 0.01 260);
+  --color-text-inverse: oklch(98% 0.005 250);
+
+  /* — Line — */
+  --color-border: oklch(91% 0.008 260);
+  --color-border-strong: oklch(84% 0.012 260);
+  --color-divider: oklch(94% 0.006 260);
+
+  /* — Accent (teal → deeper, more editorial) — */
+  --color-accent: oklch(58% 0.12 200);
+  --color-accent-hover: oklch(52% 0.13 200);
+  --color-accent-contrast: oklch(99% 0 0);
+  --color-accent-soft: oklch(95% 0.03 200);
+
+  /* — Feedback — */
+  --color-info: oklch(58% 0.13 240);
+  --color-success: oklch(58% 0.13 150);
+  --color-warning: oklch(72% 0.15 80);
+  --color-danger: oklch(58% 0.19 25);
+
+  /* — Focus ring — */
+  --color-ring: oklch(58% 0.12 200);
+
+  /* — Shadow (low-res, brand-neutral) — */
+  --shadow-xs: 0 1px 1px oklch(0% 0 0 / 4%);
+  --shadow-sm: 0 1px 2px oklch(0% 0 0 / 6%), 0 1px 1px oklch(0% 0 0 / 4%);
+  --shadow-md: 0 4px 8px oklch(0% 0 0 / 6%), 0 2px 4px oklch(0% 0 0 / 4%);
+  --shadow-lg: 0 12px 24px oklch(0% 0 0 / 8%), 0 4px 8px oklch(0% 0 0 / 4%);
+
+  /* — Type scale (fluid) — */
+  --font-sans: "Noto Sans TC Variable", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: clamp(0.95rem, 0.9rem + 0.2vw, 1rem);
+  --text-lg: clamp(1.075rem, 1rem + 0.3vw, 1.125rem);
+  --text-xl: clamp(1.2rem, 1.1rem + 0.4vw, 1.3rem);
+  --text-2xl: clamp(1.45rem, 1.3rem + 0.6vw, 1.625rem);
+  --text-3xl: clamp(1.85rem, 1.6rem + 1vw, 2.15rem);
+  --text-4xl: clamp(2.4rem, 2rem + 1.6vw, 3rem);
+  --text-hero: clamp(2.75rem, 2rem + 3vw, 4.25rem);
+
+  --leading-tight: 1.25;
+  --leading-snug: 1.4;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.8;
+
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+
+  /* — Spacing (4px base) — */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-section: clamp(3rem, 2rem + 4vw, 6rem);
+
+  /* — Radius — */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* — Motion — */
+  --duration-instant: 100ms;
+  --duration-fast: 160ms;
+  --duration-normal: 240ms;
+  --duration-slow: 400ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* — Layout — */
+  --layout-sidebar: 18rem;
+  --layout-toc: 14rem;
+  --layout-prose-max: 44rem;
+  --layout-header: 3.5rem;
+}
+
+:root.dark {
+  color-scheme: dark;
+
+  --color-bg: oklch(16% 0.012 260);
+  --color-surface: oklch(19% 0.014 260);
+  --color-surface-elevated: oklch(22% 0.015 260);
+  --color-surface-sunken: oklch(14% 0.01 260);
+  --color-overlay: oklch(0% 0 0 / 65%);
+
+  --color-text: oklch(96% 0.005 250);
+  --color-text-muted: oklch(72% 0.012 250);
+  --color-text-subtle: oklch(56% 0.01 250);
+  --color-text-inverse: oklch(16% 0.012 260);
+
+  --color-border: oklch(28% 0.016 260);
+  --color-border-strong: oklch(36% 0.018 260);
+  --color-divider: oklch(24% 0.015 260);
+
+  --color-accent: oklch(74% 0.13 200);
+  --color-accent-hover: oklch(80% 0.12 200);
+  --color-accent-contrast: oklch(16% 0.012 260);
+  --color-accent-soft: oklch(28% 0.04 200);
+
+  --color-info: oklch(74% 0.14 240);
+  --color-success: oklch(74% 0.14 150);
+  --color-warning: oklch(82% 0.16 80);
+  --color-danger: oklch(72% 0.18 25);
+
+  --color-ring: oklch(74% 0.13 200);
+
+  /* In dark, shadows are de-emphasized; depth comes from borders. */
+  --shadow-xs: 0 0 0 1px oklch(100% 0 0 / 3%);
+  --shadow-sm: 0 1px 2px oklch(0% 0 0 / 50%);
+  --shadow-md: 0 4px 12px oklch(0% 0 0 / 45%);
+  --shadow-lg: 0 12px 28px oklch(0% 0 0 / 55%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

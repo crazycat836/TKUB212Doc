@@ -1,0 +1,133 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+{
+  tocHeadings.length > 0 && (
+    <nav class="toc" aria-label="本頁目錄">
+      <p class="toc-title">本頁目錄</p>
+      <ul>
+        {tocHeadings.map((h) => (
+          <li class:list={[`depth-${h.depth}`]}>
+            <a href={`#${h.slug}`} data-toc-link={h.slug}>
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+<style>
+  .toc {
+    position: sticky;
+    top: calc(var(--layout-header) + var(--space-6));
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+  }
+
+  .toc-title {
+    margin: 0 0 var(--space-3);
+    padding: 0 var(--space-3);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-subtle);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 1px solid var(--color-divider);
+  }
+
+  li {
+    margin: 0;
+  }
+
+  .depth-3 a {
+    padding-left: var(--space-6);
+    color: var(--color-text-subtle);
+    font-size: 0.92em;
+  }
+
+  a {
+    display: block;
+    padding: var(--space-1) var(--space-3);
+    margin-left: -1px;
+    border-left: 1px solid transparent;
+    color: var(--color-text-muted);
+    transition: color var(--duration-fast) var(--ease-out-expo),
+      border-color var(--duration-fast) var(--ease-out-expo);
+  }
+
+  a:hover {
+    color: var(--color-text);
+  }
+
+  a[aria-current='location'] {
+    color: var(--color-accent);
+    font-weight: var(--weight-medium);
+    border-left-color: var(--color-accent);
+  }
+</style>
+
+<script>
+  const headingSelectors = 'article :is(h2, h3)[id]';
+  const links = document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]');
+
+  if (links.length > 0) {
+    const linkMap = new Map<string, HTMLAnchorElement>();
+    links.forEach((link) => {
+      const slug = link.dataset.tocLink;
+      if (slug) linkMap.set(slug, link);
+    });
+
+    const clearActive = () =>
+      links.forEach((l) => l.removeAttribute('aria-current'));
+
+    const setActive = (slug: string) => {
+      clearActive();
+      const link = linkMap.get(slug);
+      if (link) link.setAttribute('aria-current', 'location');
+    };
+
+    const headings = Array.from(
+      document.querySelectorAll<HTMLElement>(headingSelectors),
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .map((e) => e.target as HTMLElement);
+        if (visible.length === 0) return;
+        // Pick the topmost visible heading
+        visible.sort(
+          (a, b) =>
+            a.getBoundingClientRect().top - b.getBoundingClientRect().top,
+        );
+        setActive(visible[0].id);
+      },
+      {
+        rootMargin: '-80px 0px -70% 0px',
+        threshold: [0, 1],
+      },
+    );
+
+    headings.forEach((h) => observer.observe(h));
+
+    // Initial state — first heading
+    if (headings[0]) setActive(headings[0].id);
+  }
+</script>

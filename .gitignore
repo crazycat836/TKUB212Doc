@@ -1,15 +1,29 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+.astro
+
 # Logs
 logs
 *.log
+npm-debug.log*
 
-# Dependency directory
-
-node_modules
-
+# Editor / OS
 .DS_Store
 .AppleDouble
 .LSOverride
-/dist
-/build
-/.idea
-/.firebase
+.idea
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Firebase
+.firebase
+firebase-debug.log
+
+# Env
+.env
+.env.local
+.env.production

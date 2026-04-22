@@ -1,0 +1,81 @@
+---
+import '~/styles/global.css';
+import SkipLink from '~/components/SkipLink.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = '一份關於 TKU B212 的維修工讀生教學手冊。',
+  ogImage,
+  noindex = false,
+} = Astro.props;
+
+const fullTitle = title.includes('TKU-B212')
+  ? title
+  : `${title} — TKU-B212 維修工讀生手冊`;
+
+const cleanPath = Astro.url.pathname
+  .replace(/\/index\.html$/, '/')
+  .replace(/\.html$/, '');
+const canonical = new URL(cleanPath, Astro.site).toString();
+const ogImageUrl = ogImage
+  ? new URL(ogImage, Astro.site).toString()
+  : new URL('/og-default.png', Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:site_name" content="TKU-B212 維修工讀生手冊" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Prevent FOUC in dark mode: apply before stylesheet parses layout. -->
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem('theme');
+          const resolved =
+            stored ??
+            (matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light');
+          if (resolved === 'dark') {
+            document.documentElement.classList.add('dark');
+          }
+        } catch {}
+      })();
+    </script>
+  </head>
+  <body>
+    <SkipLink />
+    <slot />
+  </body>
+</html>

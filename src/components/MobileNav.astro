@@ -1,0 +1,142 @@
+---
+import { Menu, X } from '@lucide/astro';
+import Sidebar from './Sidebar.astro';
+
+interface Props {
+  currentSlug?: string;
+}
+
+const { currentSlug } = Astro.props;
+---
+
+<button
+  type="button"
+  class="mobile-nav-trigger"
+  aria-controls="mobile-nav-dialog"
+  aria-expanded="false"
+  aria-label="開啟目錄"
+  data-mobile-nav-open
+>
+  <Menu size={20} aria-hidden="true" />
+</button>
+
+<dialog id="mobile-nav-dialog" class="mobile-nav-dialog" aria-label="文件導覽">
+  <div class="dialog-inner">
+    <button
+      type="button"
+      class="mobile-nav-close"
+      aria-label="關閉目錄"
+      data-mobile-nav-close
+    >
+      <X size={20} aria-hidden="true" />
+    </button>
+    <Sidebar currentSlug={currentSlug} />
+  </div>
+</dialog>
+
+<style>
+  .mobile-nav-trigger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    transition: background-color var(--duration-fast) var(--ease-out-expo);
+  }
+  .mobile-nav-trigger:hover {
+    background: var(--color-surface-sunken);
+  }
+  @media (max-width: 767px) {
+    .mobile-nav-trigger {
+      display: inline-flex;
+    }
+  }
+
+  .mobile-nav-dialog {
+    margin: 0 0 0 auto;
+    padding: 0;
+    width: min(320px, 85vw);
+    max-width: 85vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    border: none;
+    background: var(--color-surface);
+    color: var(--color-text);
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform var(--duration-normal) var(--ease-out-expo);
+  }
+
+  .mobile-nav-dialog[open] {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-dialog::backdrop {
+    background: var(--color-overlay);
+    backdrop-filter: blur(2px);
+  }
+
+  .dialog-inner {
+    position: relative;
+    padding: var(--space-4) 0;
+  }
+
+  .mobile-nav-close {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    z-index: 1;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    color: var(--color-text-muted);
+  }
+  .mobile-nav-close:hover {
+    background: var(--color-surface-sunken);
+    color: var(--color-text);
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById(
+    'mobile-nav-dialog',
+  ) as HTMLDialogElement | null;
+  const trigger = document.querySelector<HTMLButtonElement>(
+    '[data-mobile-nav-open]',
+  );
+  const closeBtn = document.querySelector<HTMLButtonElement>(
+    '[data-mobile-nav-close]',
+  );
+
+  if (dialog && trigger && closeBtn) {
+    const open = () => {
+      dialog.showModal();
+      trigger.setAttribute('aria-expanded', 'true');
+    };
+    const close = () => {
+      dialog.close();
+      trigger.setAttribute('aria-expanded', 'false');
+    };
+
+    trigger.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    dialog.addEventListener('close', () => {
+      trigger.setAttribute('aria-expanded', 'false');
+    });
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) close();
+    });
+    dialog.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target instanceof HTMLAnchorElement && target.closest('nav')) {
+        close();
+      }
+    });
+  }
+</script>

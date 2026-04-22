@@ -1,0 +1,621 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import ThemeToggle from '~/components/ThemeToggle.astro';
+import { ArrowRight, Book, Compass, Wrench } from '@lucide/astro';
+import { getCollection } from 'astro:content';
+import { navGroups } from '~/lib/nav';
+
+const docs = await getCollection('docs');
+const docBySlug = new Map(docs.map((d) => [d.id, d]));
+
+const firstSlug = navGroups[0]?.items[0]?.slug ?? 'notice';
+
+const groupIcons = {
+  general: Book,
+  printer: Compass,
+  repair: Wrench,
+  copy: Compass,
+  other: Compass,
+} as const;
+
+const groupLabels: Record<string, string> = {
+  general: '基礎',
+  printer: '印表機',
+  repair: '維修',
+  copy: '對拷',
+  other: '其他',
+};
+---
+
+<BaseLayout
+  title="TKU-B212 維修工讀生手冊"
+  description="一份關於淡江大學 B212 實習室維修工讀生的工作指南，含上班須知、電話禮儀、印表機設定、電腦與硬碟維修、CTSC 操作、關棟流程等。"
+>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="/" class="brand">
+        <span class="brand-mark">B212</span>
+        <span class="brand-name">TKU-B212</span>
+      </a>
+      <div class="nav-actions">
+        <a
+          href="https://github.com/crazycat836/TKUB212Doc"
+          class="github-link"
+          rel="noopener noreferrer"
+          target="_blank">GitHub</a
+        >
+        <ThemeToggle />
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Documentation</p>
+          <h1 class="hero-title">
+            維修工讀生<br />的工作手冊
+          </h1>
+          <p class="hero-lede">
+            一份關於 B212 的說明文件。共十五個主題，從辦公室常見狀況、電話禮儀，到印表機 IP、硬碟對拷與 CTSC。內容於 2018 年最後更新後便停止維護，作為工讀期間的工作紀錄保留下來。
+          </p>
+          <div class="hero-actions">
+            <a href={`/${firstSlug}`} class="btn btn-primary">
+              開始閱讀
+              <ArrowRight size={16} aria-hidden="true" />
+            </a>
+            <a href="#about" class="btn btn-ghost">關於這份手冊</a>
+          </div>
+          <ul class="version-pills" aria-label="版本資訊">
+            <li>
+              <span class="dot dot-content" aria-hidden="true"></span>
+              <span class="pill-label">內容</span>
+              <span class="pill-value">2016–2018</span>
+            </li>
+            <li>
+              <span class="dot dot-ui" aria-hidden="true"></span>
+              <span class="pill-label">介面</span>
+              <span class="pill-value">2026 重新設計</span>
+            </li>
+          </ul>
+        </div>
+        <div class="hero-mascot">
+          <img
+            src="/penguin.svg"
+            alt="一隻小企鵝——本手冊的吉祥物"
+            width="541"
+            height="612"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="features-inner">
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">
+            <Book size={18} />
+          </div>
+          <h2>任何裝置，任何平台</h2>
+          <p>
+            手機、平板、電腦，Android、iOS、Windows、macOS、Linux——打開瀏覽器，隨時可讀。
+          </p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">
+            <Compass size={18} />
+          </div>
+          <h2>專為閱讀設計</h2>
+          <p>
+            繁中優先的字距與行高、側邊導覽與段落目錄，兼顧瀏覽與深度閱讀。
+          </p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">
+            <Wrench size={18} />
+          </div>
+          <h2>工作現場第一手</h2>
+          <p>
+            來自實習室輪班現場的步驟、照片與轉單流程，讓新人少走彎路。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog">
+      <div class="catalog-inner">
+        <p class="section-eyebrow">目錄</p>
+        <h2 class="section-title">十五個主題</h2>
+        <div class="groups">
+          {
+            navGroups.map((group, i) => {
+              const groupKey = group.items[0]
+                ? docBySlug.get(group.items[0].slug)?.data.group
+                : undefined;
+              const label =
+                group.label ??
+                (groupKey ? groupLabels[groupKey] : `主題 ${i + 1}`);
+              const Icon = groupKey ? groupIcons[groupKey] : Book;
+              return (
+                <div class="group">
+                  <div class="group-head">
+                    <span class="group-icon" aria-hidden="true">
+                      <Icon size={16} />
+                    </span>
+                    <h3>{label}</h3>
+                  </div>
+                  <ul>
+                    {group.items.map(({ slug }) => {
+                      const doc = docBySlug.get(slug);
+                      if (!doc) return null;
+                      return (
+                        <li>
+                          <a href={`/${slug}`}>
+                            <span>{doc.data.title}</span>
+                            <ArrowRight size={14} aria-hidden="true" />
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="about-inner">
+        <p class="section-eyebrow">About</p>
+        <h2 class="section-title">關於</h2>
+        <p>
+          這個網站從發想、構思到成品大約花了一個禮拜，網站內容則在更早之前便陸續累積。
+        </p>
+        <p>
+          從一開始的 Google 文件、HackPad、GitBook 到如今的網站，中間經歷過數次平台轉換，內容修正不下數百次。
+        </p>
+        <p>
+          站長畢業後便沒有再維護，內容停留於 2018 年 10 月。希望在看完後，仍能對當時的工作內容有更加全面的認識。
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span>© 2016–2018 TKU-B212 維修工讀生手冊</span>
+      <a
+        href="https://github.com/crazycat836/TKUB212Doc"
+        rel="noopener noreferrer"
+        target="_blank">Source on GitHub</a
+      >
+    </div>
+  </footer>
+</BaseLayout>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: var(--layout-header);
+    border-bottom: 1px solid var(--color-divider);
+    background: color-mix(in oklch, var(--color-bg) 82%, transparent);
+    backdrop-filter: saturate(1.4) blur(10px);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+  @media (min-width: 768px) {
+    .nav-inner {
+      padding: 0 var(--space-8);
+    }
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-weight: var(--weight-bold);
+    color: var(--color-text);
+    letter-spacing: var(--tracking-tight);
+  }
+  .brand-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    background: var(--color-accent);
+    color: var(--color-accent-contrast);
+    font-size: 11px;
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.02em;
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  .github-link {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    transition: color var(--duration-fast) var(--ease-out-expo),
+      background-color var(--duration-fast) var(--ease-out-expo);
+  }
+  .github-link:hover {
+    color: var(--color-text);
+    background: var(--color-surface-sunken);
+  }
+
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+  }
+  @media (min-width: 768px) {
+    main {
+      padding: 0 var(--space-8);
+    }
+  }
+
+  .hero {
+    padding: var(--space-section) 0 var(--space-16);
+  }
+  .hero-inner {
+    display: grid;
+    gap: var(--space-10);
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .hero-inner {
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+      gap: var(--space-12);
+    }
+  }
+  .hero-text {
+    max-width: 38rem;
+    min-width: 0;
+  }
+
+  .hero-mascot {
+    display: flex;
+    justify-content: center;
+    order: -1;
+    position: relative;
+    isolation: isolate;
+  }
+  @media (min-width: 900px) {
+    .hero-mascot {
+      order: 0;
+      justify-content: flex-end;
+    }
+  }
+  /* Soft halo — only visible in dark mode, keeps the penguin from dissolving into the background. */
+  .hero-mascot::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(110%, 340px);
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+      circle at center,
+      oklch(70% 0.04 210 / var(--hero-halo-strength, 0)),
+      transparent 62%
+    );
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(8px);
+  }
+  :global(.dark) .hero-mascot::before {
+    --hero-halo-strength: 22%;
+  }
+  .hero-mascot img {
+    width: clamp(160px, 32vw, 280px);
+    height: auto;
+    animation: hero-float 5.6s ease-in-out infinite;
+    transition: transform var(--duration-normal) var(--ease-out-expo),
+      filter var(--duration-normal) var(--ease-out-expo);
+    will-change: transform;
+  }
+  .hero-mascot img:hover {
+    transform: scale(1.04);
+  }
+  @keyframes hero-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  /*
+   * Dark-mode penguin: three stacked drop-shadows give
+   *   1) a crisp silhouette outline (so the black body doesn't merge with bg)
+   *   2) a softer ambient glow (atmospheric presence)
+   *   3) a ground shadow (grounds it below the mascot)
+   */
+  :global(.dark) .hero-mascot img {
+    filter: drop-shadow(0 0 1.5px oklch(82% 0.02 210 / 85%))
+      drop-shadow(0 0 10px oklch(70% 0.05 210 / 35%))
+      drop-shadow(0 16px 36px oklch(0% 0 0 / 55%));
+  }
+
+  .version-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    list-style: none;
+    padding: 0;
+    margin: var(--space-8) 0 0;
+  }
+  .version-pills li {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+  }
+  .version-pills .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+  }
+  .version-pills .dot-content {
+    background: var(--color-text-subtle);
+  }
+  .version-pills .dot-ui {
+    background: var(--color-accent);
+  }
+  .version-pills .pill-label {
+    color: var(--color-text-subtle);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+  .version-pills .pill-value {
+    color: var(--color-text);
+    font-weight: var(--weight-medium);
+    font-size: var(--text-sm);
+  }
+  .eyebrow,
+  .section-eyebrow {
+    margin: 0 0 var(--space-4);
+    color: var(--color-accent);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+  .hero-title {
+    margin: 0;
+    font-size: var(--text-hero);
+    line-height: 1.05;
+    letter-spacing: var(--tracking-tight);
+    font-weight: var(--weight-bold);
+  }
+  .hero-lede {
+    margin: var(--space-6) 0 0;
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-muted);
+    max-width: 32em;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-8);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    transition: background-color var(--duration-fast) var(--ease-out-expo),
+      color var(--duration-fast) var(--ease-out-expo),
+      border-color var(--duration-fast) var(--ease-out-expo),
+      transform var(--duration-fast) var(--ease-out-expo);
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn-primary {
+    background: var(--color-accent);
+    color: var(--color-accent-contrast);
+  }
+  .btn-primary:hover {
+    background: var(--color-accent-hover);
+  }
+  .btn-ghost {
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+  }
+  .btn-ghost:hover {
+    color: var(--color-text);
+    background: var(--color-surface-sunken);
+  }
+
+  .features {
+    padding: var(--space-16) 0;
+    border-top: 1px solid var(--color-divider);
+  }
+  .features-inner {
+    display: grid;
+    gap: var(--space-8);
+  }
+  @media (min-width: 768px) {
+    .features-inner {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+  }
+  .feature h2 {
+    margin: var(--space-4) 0 var(--space-2);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-tight);
+  }
+  .feature p {
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: var(--leading-normal);
+    font-size: var(--text-sm);
+  }
+  .feature-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    color: var(--color-accent);
+    background: var(--color-surface);
+  }
+
+  .catalog {
+    padding: var(--space-16) 0;
+    border-top: 1px solid var(--color-divider);
+  }
+  .section-title {
+    margin: 0 0 var(--space-10);
+    font-size: var(--text-3xl);
+    letter-spacing: var(--tracking-tight);
+    font-weight: var(--weight-bold);
+  }
+  .groups {
+    display: grid;
+    gap: var(--space-6);
+  }
+  @media (min-width: 640px) {
+    .groups {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .groups {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .group {
+    padding: var(--space-5);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    transition: border-color var(--duration-fast) var(--ease-out-expo);
+  }
+  .group:hover {
+    border-color: var(--color-border-strong);
+  }
+  .group-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+    color: var(--color-text);
+  }
+  .group-icon {
+    display: inline-grid;
+    place-items: center;
+    color: var(--color-accent);
+  }
+  .group h3 {
+    margin: 0;
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-subtle);
+  }
+  .group ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .group li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    transition: color var(--duration-fast) var(--ease-out-expo),
+      background-color var(--duration-fast) var(--ease-out-expo);
+  }
+  .group li a:hover {
+    color: var(--color-accent);
+    background: var(--color-accent-soft);
+  }
+  .group li a svg {
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity var(--duration-fast) var(--ease-out-expo),
+      transform var(--duration-fast) var(--ease-out-expo);
+  }
+  .group li a:hover svg {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .about {
+    padding: var(--space-16) 0 var(--space-section);
+    border-top: 1px solid var(--color-divider);
+  }
+  .about-inner {
+    max-width: 40rem;
+  }
+  .about p {
+    margin: var(--space-4) 0;
+    color: var(--color-text-muted);
+    line-height: var(--leading-relaxed);
+  }
+
+  .site-footer {
+    border-top: 1px solid var(--color-divider);
+    padding: var(--space-6) 0;
+  }
+  .site-footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--color-text-subtle);
+  }
+  @media (min-width: 768px) {
+    .site-footer-inner {
+      padding: 0 var(--space-8);
+    }
+  }
+  .site-footer a:hover {
+    color: var(--color-text);
+  }
+</style>

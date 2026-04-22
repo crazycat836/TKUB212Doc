@@ -1,0 +1,10 @@
+---
+interface Props {
+  href?: string;
+  label?: string;
+}
+
+const { href = '#content', label = '跳至主要內容' } = Astro.props;
+---
+
+<a class="skip-link" href={href}>{label}</a>

@@ -1,43 +1,96 @@
-<h1 align="center">TKU B212 維修工讀生教學</h1>
+# TKU-B212 維修工讀生手冊
 
-<div align="center">
+一份給淡江大學 B212 實習室維修工讀生的線上手冊，整理自輪班期間的工作筆記，共 15 個主題。內容最後更新於 2018 年，現以歷史版本保留。
 
-B212 維修工讀生的維修教學文件
+**Live**: <https://b212-1a27b.firebaseapp.com>
 
-這是一份參考文件，所有事情以工讀生手冊上，或是辦公室大哥大姐說的為準
+## Stack
 
+- [Astro 6](https://astro.build/) — static site
+- Markdown + [Content Collections](https://docs.astro.build/en/guides/content-collections/) — 單一內容來源，schema 驗證
+- 純 CSS + CSS custom properties — design tokens 驅動
+- [Noto Sans TC](https://fonts.google.com/noto/specimen/Noto+Sans+TC)（self-hosted via `@fontsource-variable/noto-sans-tc`）
+- [@lucide/astro](https://lucide.dev/) — 圖示
+- TypeScript（strict）
+- Firebase Hosting — 靜態部署
 
-[![Dependencies](https://img.shields.io/david/crazycat836/TKUB212Doc.svg)](https://david-dm.org/crazycat836/TKUB212Doc)
-[![DevDependencies](https://img.shields.io/david/dev/crazycat836/TKUB212Doc.svg)](https://david-dm.org/crazycat836/TKUB212Doc?type=dev)
-![GitHub](https://img.shields.io/github/license/crazycat836/TKUB212Doc.svg)
-![GitHub release](https://img.shields.io/github/release/crazycat836/TKUB212Doc.svg)
-![](https://user-images.githubusercontent.com/4694414/46287336-d00b8080-c5b4-11e8-88b3-713a08833a5e.png)
+## Getting started
 
-</div>
-
-- 首頁：https://b212-1a27b.firebaseapp.com
-- 使用文檔：https://hackmd.io/s/SyS_9ik5Q
-- 更新日誌：https://hackmd.io/s/SkzfM5J5m
-
-## 特色
-
-- :gem:：**優雅美觀**：以簡單且優雅的設計，呈現網站內容
-- :iphone:：**Responsive Design**：不管使用哪種裝置，都能有良好的閱讀體驗
-- :globe_with_meridians:：**多平台支援**：手機？平板？電腦？ 通通沒問題
-
-## 使用
+需要 **Node 20+**。
 
 ```bash
-$ git clone https://github.com/crazycat836/TKUB212Doc.git
-$ cd TKUB212Doc
-$ npm install
-$ firebase serve         # 打開 http://localhost:5000
+npm install
+npm run dev           # http://localhost:4321
 ```
 
-更多資訊請參考 [使用文檔](https://hackmd.io/s/SyS_9ik5Q)。
+## Scripts
 
+| 指令 | 用途 |
+| --- | --- |
+| `npm run dev` | 本地開發（熱更新） |
+| `npm run build` | 產出 `dist/` |
+| `npm run preview` | 預覽 build 結果 |
+| `npm run typecheck` | Astro / TypeScript 型別檢查 |
+| `npm run serve:firebase` | `firebase serve`（套用 hosting config） |
+| `npm run deploy` | 建置 + `firebase deploy` |
 
-## 想要幫忙?
-如果有任何錯誤或是遺漏，可以透過以下方式回報 :smiley:：
-- 透過 [Issue](https://github.com/crazycat836/TKUB212Doc/issues) 回報 bug 或詢問。
-- 提交 [Pull Request](https://github.com/crazycat836/TKUB212Doc/pulls) 改進 Doc 的程式碼。
+## Project layout
+
+```
+src/
+├── content/
+│   └── docs/                 # 每一頁一份 Markdown（單一內容來源）
+├── content.config.ts         # zod schema
+├── components/               # Sidebar, TOC, ThemeToggle, MobileNav, SkipLink
+├── layouts/                  # BaseLayout, DocLayout
+├── lib/
+│   └── nav.ts                # 側邊欄結構（type-safe）
+├── pages/
+│   ├── index.astro           # 首頁
+│   └── [...slug].astro       # 所有內頁從 content collection 產生
+├── assets/images/            # Markdown 圖片（Astro 自動優化成 WebP）
+└── styles/
+    ├── tokens.css            # Design tokens（顏色、字、間距、圓角、motion）
+    └── global.css            # Reset + prose 規則
+```
+
+## 新增 / 修改內容
+
+編輯 `src/content/docs/*.md`。每份檔案需要下列 frontmatter：
+
+```yaml
+---
+title: 頁面標題
+description: 一句話摘要（給 meta description 用）
+order: 10
+group: general | printer | repair | copy | other
+---
+```
+
+若要新增一頁：
+
+1. 於 `src/content/docs/` 建立 `.md` 檔
+2. 於 `src/lib/nav.ts` 將 slug 加入對應群組
+3. `npm run dev` 即可看到
+
+## 設計系統
+
+見 [`DESIGN.md`](./DESIGN.md) — 色彩、字型、間距、元件原則、a11y 規範。所有 CSS 變數的正典來源在 `src/styles/tokens.css`。
+
+## 部署
+
+Firebase Hosting。`firebase.json` 已配置：
+
+- Public: `dist/`
+- `cleanUrls: true` — `/notice.html` ↔ `/notice`
+- 圖片 / JS / CSS 使用長效 Cache-Control
+
+一鍵部署：
+
+```bash
+npm run deploy
+```
+
+## License
+
+MIT — see [LICENSE](./LICENSE).

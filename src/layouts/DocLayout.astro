@@ -1,0 +1,253 @@
+---
+import type { MarkdownHeading } from 'astro';
+import BaseLayout from './BaseLayout.astro';
+import Sidebar from '~/components/Sidebar.astro';
+import TOC from '~/components/TOC.astro';
+import ThemeToggle from '~/components/ThemeToggle.astro';
+import MobileNav from '~/components/MobileNav.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  headings: MarkdownHeading[];
+  updatedAt?: Date;
+}
+
+const { title, description, slug, headings, updatedAt } = Astro.props;
+
+const formatter = new Intl.DateTimeFormat('zh-TW', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="topbar-left">
+          <MobileNav currentSlug={slug} />
+          <a href="/" class="home-link">TKU-B212</a>
+        </div>
+        <div class="topbar-right">
+          <a
+            href="https://github.com/crazycat836/TKUB212Doc"
+            class="repo-link"
+            rel="noopener noreferrer"
+            target="_blank"
+            aria-label="GitHub 原始碼">GitHub</a
+          >
+          <ThemeToggle />
+        </div>
+      </div>
+    </header>
+
+    <aside class="sidebar-wrap">
+      <Sidebar currentSlug={slug} />
+    </aside>
+
+    <main id="content" class="main">
+      <article class="prose">
+        <header class="article-head">
+          <p class="eyebrow">維修工讀生手冊</p>
+          <h1>{title}</h1>
+          <p class="lede">{description}</p>
+          {
+            updatedAt && (
+              <p class="meta">
+                最後更新：
+                <time datetime={updatedAt.toISOString()}>
+                  {formatter.format(updatedAt)}
+                </time>
+              </p>
+            )
+          }
+        </header>
+        <div class="article-body">
+          <slot />
+        </div>
+      </article>
+    </main>
+
+    <aside class="toc-wrap">
+      <TOC headings={headings} />
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .shell {
+    display: grid;
+    min-height: 100dvh;
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--layout-header) 1fr;
+    grid-template-areas:
+      'topbar'
+      'main';
+  }
+
+  @media (min-width: 768px) {
+    .shell {
+      grid-template-columns: var(--layout-sidebar) 1fr;
+      grid-template-areas:
+        'sidebar topbar'
+        'sidebar main';
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .shell {
+      grid-template-columns: var(--layout-sidebar) 1fr var(--layout-toc);
+      grid-template-areas:
+        'sidebar topbar topbar'
+        'sidebar main toc';
+    }
+  }
+
+  .topbar {
+    grid-area: topbar;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: var(--layout-header);
+    border-bottom: 1px solid var(--color-divider);
+    background: color-mix(in oklch, var(--color-bg) 82%, transparent);
+    backdrop-filter: saturate(1.4) blur(10px);
+  }
+
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    height: 100%;
+    padding: 0 var(--space-4);
+  }
+
+  @media (min-width: 1024px) {
+    .topbar-inner {
+      padding: 0 var(--space-8);
+    }
+  }
+
+  .topbar-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .home-link {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-muted);
+  }
+
+  .home-link:hover {
+    color: var(--color-text);
+  }
+
+  @media (min-width: 768px) {
+    .home-link {
+      display: none;
+    }
+  }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .repo-link {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    transition: color var(--duration-fast) var(--ease-out-expo),
+      background-color var(--duration-fast) var(--ease-out-expo);
+  }
+  .repo-link:hover {
+    color: var(--color-text);
+    background: var(--color-surface-sunken);
+  }
+
+  .sidebar-wrap {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .sidebar-wrap {
+      display: block;
+      grid-area: sidebar;
+      position: sticky;
+      top: 0;
+      align-self: start;
+      height: 100dvh;
+      overflow-y: auto;
+      border-right: 1px solid var(--color-divider);
+      background: var(--color-surface);
+    }
+  }
+
+  .main {
+    grid-area: main;
+    padding: var(--space-8) var(--space-4) var(--space-section);
+    min-width: 0;
+  }
+
+  @media (min-width: 768px) {
+    .main {
+      padding: var(--space-10) var(--space-8) var(--space-section);
+    }
+  }
+
+  .article-head {
+    margin-bottom: var(--space-10);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .article-head h1 {
+    margin: var(--space-3) 0 var(--space-4);
+    font-size: var(--text-4xl);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: var(--color-accent);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .lede {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: var(--text-lg);
+    line-height: var(--leading-normal);
+    max-width: 46ch;
+  }
+
+  .meta {
+    margin: var(--space-4) 0 0;
+    color: var(--color-text-subtle);
+    font-size: var(--text-sm);
+  }
+
+  .toc-wrap {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .toc-wrap {
+      display: block;
+      grid-area: toc;
+      padding: var(--space-10) var(--space-6) var(--space-section) 0;
+      min-width: 0;
+    }
+  }
+</style>
