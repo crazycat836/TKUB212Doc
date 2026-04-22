@@ -30,6 +30,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
     "@types/node": "^22.9.0",
+    "firebase-tools": "^15.15.0",
     "typescript": "^5.7.2"
   }
 }
