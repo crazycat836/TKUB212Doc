@@ -1,0 +1,40 @@
+---
+interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+---
+
+<a class="brand" href="/">
+  <span class="brand-mark" aria-hidden="true">B212</span>
+  <span class="brand-name">{name}</span>
+</a>
+
+<style>
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--color-text);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .brand-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    background: var(--color-accent);
+    color: var(--color-accent-contrast);
+    font-size: 11px;
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-name {
+    font-size: var(--text-base);
+  }
+</style>

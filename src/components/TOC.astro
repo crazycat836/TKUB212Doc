@@ -83,6 +83,9 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
 </style>
 
 <script>
+  // sticky header 高度（--layout-header: 3.5rem = 56px，見 tokens.css）加上緩衝；
+  // 調整 header 高度時需一併更新。
+  const HEADER_OFFSET_PX = 80;
   const headingSelectors = 'article :is(h2, h3)[id]';
   const links = document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]');
 
@@ -120,7 +123,7 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
         setActive(visible[0].id);
       },
       {
-        rootMargin: '-80px 0px -70% 0px',
+        rootMargin: `-${HEADER_OFFSET_PX}px 0px -70% 0px`,
         threshold: [0, 1],
       },
     );

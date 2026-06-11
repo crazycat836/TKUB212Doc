@@ -1,0 +1,88 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import { GITHUB_URL } from '~/lib/site';
+
+interface Props {
+  /** true 時內容寬度限制在 1200px 置中（首頁用）；false 為滿版（文件頁用） */
+  contained?: boolean;
+}
+
+const { contained = false } = Astro.props;
+---
+
+<header class="topbar">
+  <div class:list={['topbar-inner', { contained }]}>
+    <div class="topbar-left">
+      <slot name="left" />
+    </div>
+    <div class="topbar-right">
+      <a
+        href={GITHUB_URL}
+        class="repo-link"
+        rel="noopener noreferrer"
+        target="_blank"
+        aria-label="GitHub 原始碼">GitHub</a
+      >
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
+
+<style>
+  .topbar {
+    /* DocLayout 的 grid 會吃這個 area；首頁非 grid 容器，此宣告無作用 */
+    grid-area: topbar;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: var(--layout-header);
+    border-bottom: 1px solid var(--color-divider);
+    background: color-mix(in oklch, var(--color-bg) 82%, transparent);
+    backdrop-filter: saturate(1.4) blur(10px);
+  }
+
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    height: 100%;
+    padding: 0 var(--space-4);
+  }
+
+  .topbar-inner.contained {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .topbar-inner {
+      padding: 0 var(--space-8);
+    }
+  }
+
+  .topbar-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .repo-link {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    transition: color var(--duration-fast) var(--ease-out-expo),
+      background-color var(--duration-fast) var(--ease-out-expo);
+  }
+  .repo-link:hover {
+    color: var(--color-text);
+    background: var(--color-surface-sunken);
+  }
+</style>

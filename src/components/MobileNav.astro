@@ -79,6 +79,11 @@ const { currentSlug } = Astro.props;
     backdrop-filter: blur(2px);
   }
 
+  /* 選單開啟時鎖住背景捲動 */
+  :global(body:has(.mobile-nav-dialog[open])) {
+    overflow: hidden;
+  }
+
   .dialog-inner {
     position: relative;
     padding: var(--space-4) 0;
@@ -130,10 +135,12 @@ const { currentSlug } = Astro.props;
       trigger.setAttribute('aria-expanded', 'false');
     });
     dialog.addEventListener('click', (e) => {
-      if (e.target === dialog) close();
-    });
-    dialog.addEventListener('click', (e) => {
       const target = e.target;
+      // 點擊 backdrop（target 是 dialog 本身）或導覽連結時關閉
+      if (target === dialog) {
+        close();
+        return;
+      }
       if (target instanceof HTMLAnchorElement && target.closest('nav')) {
         close();
       }

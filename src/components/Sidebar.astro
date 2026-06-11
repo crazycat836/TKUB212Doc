@@ -1,37 +1,30 @@
 ---
-import { getCollection } from 'astro:content';
-import { navGroups } from '~/lib/nav';
+import Brand from './Brand.astro';
+import { getNavGroups } from '~/lib/nav';
 
 interface Props {
   currentSlug?: string;
 }
 
 const { currentSlug } = Astro.props;
-
-const docs = await getCollection('docs');
-const docBySlug = new Map(docs.map((d) => [d.id, d]));
+const navGroups = await getNavGroups();
 ---
 
 <nav class="sidebar" aria-label="文件導覽">
-  <a class="brand" href="/">
-    <span class="brand-mark" aria-hidden="true">B212</span>
-    <span class="brand-name">維修工讀生手冊</span>
-  </a>
+  <Brand name="維修工讀生手冊" />
 
   <ul class="groups">
     {
       navGroups.map((group) => (
         <li class="group">
-          {group.label && <p class="group-label">{group.label}</p>}
+          {group.sidebarLabel && <p class="group-label">{group.sidebarLabel}</p>}
           <ul class="items">
-            {group.items.map(({ slug }) => {
-              const doc = docBySlug.get(slug);
-              if (!doc) return null;
-              const isActive = slug === currentSlug;
+            {group.docs.map((doc) => {
+              const isActive = doc.id === currentSlug;
               return (
                 <li>
                   <a
-                    href={`/${slug}`}
+                    href={`/${doc.id}`}
                     class:list={['item', { active: isActive }]}
                     aria-current={isActive ? 'page' : undefined}
                   >
@@ -54,32 +47,6 @@ const docBySlug = new Map(docs.map((d) => [d.id, d]));
     gap: var(--space-8);
     padding: var(--space-6) var(--space-4);
     font-size: var(--text-sm);
-  }
-
-  .brand {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-3);
-    color: var(--color-text);
-    font-weight: var(--weight-bold);
-    letter-spacing: var(--tracking-tight);
-  }
-
-  .brand-mark {
-    display: inline-grid;
-    place-items: center;
-    width: 32px;
-    height: 32px;
-    border-radius: var(--radius-md);
-    background: var(--color-accent);
-    color: var(--color-accent-contrast);
-    font-size: 11px;
-    font-weight: var(--weight-bold);
-    letter-spacing: 0.02em;
-  }
-
-  .brand-name {
-    font-size: var(--text-base);
   }
 
   .groups {

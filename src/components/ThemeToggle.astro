@@ -63,6 +63,8 @@ import { Monitor, Sun, Moon } from '@lucide/astro';
 </style>
 
 <script is:inline>
+  // 注意：storage key 'theme' 與「無 key = 跟隨系統」的解析規則，
+  // 必須與 BaseLayout.astro <head> 內的 FOUC script 保持一致，兩處要同步修改。
   (() => {
     const STORAGE_KEY = 'theme';
     const getStored = () => {

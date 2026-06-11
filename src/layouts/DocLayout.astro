@@ -3,7 +3,7 @@ import type { MarkdownHeading } from 'astro';
 import BaseLayout from './BaseLayout.astro';
 import Sidebar from '~/components/Sidebar.astro';
 import TOC from '~/components/TOC.astro';
-import ThemeToggle from '~/components/ThemeToggle.astro';
+import TopBar from '~/components/TopBar.astro';
 import MobileNav from '~/components/MobileNav.astro';
 
 interface Props {
@@ -23,26 +23,14 @@ const formatter = new Intl.DateTimeFormat('zh-TW', {
 });
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogType="article">
   <div class="shell">
-    <header class="topbar">
-      <div class="topbar-inner">
-        <div class="topbar-left">
-          <MobileNav currentSlug={slug} />
-          <a href="/" class="home-link">TKU-B212</a>
-        </div>
-        <div class="topbar-right">
-          <a
-            href="https://github.com/crazycat836/TKUB212Doc"
-            class="repo-link"
-            rel="noopener noreferrer"
-            target="_blank"
-            aria-label="GitHub 原始碼">GitHub</a
-          >
-          <ThemeToggle />
-        </div>
-      </div>
-    </header>
+    <TopBar>
+      <Fragment slot="left">
+        <MobileNav currentSlug={slug} />
+        <a href="/" class="home-link">TKU-B212</a>
+      </Fragment>
+    </TopBar>
 
     <aside class="sidebar-wrap">
       <Sidebar currentSlug={slug} />
@@ -106,38 +94,6 @@ const formatter = new Intl.DateTimeFormat('zh-TW', {
     }
   }
 
-  .topbar {
-    grid-area: topbar;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    height: var(--layout-header);
-    border-bottom: 1px solid var(--color-divider);
-    background: color-mix(in oklch, var(--color-bg) 82%, transparent);
-    backdrop-filter: saturate(1.4) blur(10px);
-  }
-
-  .topbar-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-4);
-    height: 100%;
-    padding: 0 var(--space-4);
-  }
-
-  @media (min-width: 1024px) {
-    .topbar-inner {
-      padding: 0 var(--space-8);
-    }
-  }
-
-  .topbar-left {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-  }
-
   .home-link {
     font-size: var(--text-sm);
     font-weight: var(--weight-medium);
@@ -152,25 +108,6 @@ const formatter = new Intl.DateTimeFormat('zh-TW', {
     .home-link {
       display: none;
     }
-  }
-
-  .topbar-right {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-  }
-
-  .repo-link {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    padding: var(--space-2) var(--space-3);
-    border-radius: var(--radius-md);
-    transition: color var(--duration-fast) var(--ease-out-expo),
-      background-color var(--duration-fast) var(--ease-out-expo);
-  }
-  .repo-link:hover {
-    color: var(--color-text);
-    background: var(--color-surface-sunken);
   }
 
   .sidebar-wrap {
